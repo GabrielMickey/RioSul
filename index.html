@@ -569,7 +569,7 @@ const Admin={flt:{q:'',status:'',store:'',from:'',to:''},linkSel:{t:'home',id:''
   if(S.cloudErr&&S.cloud===false&&SB.cfg()){}
   if(S.cloud&&!S.user){$('#app').innerHTML=this.login();return}
   if(S.cloud&&S.isAdmin===false){$('#app').innerHTML=`<div class="login"><h1>Acesso não autorizado</h1><p style="margin:10px 0">Seu usuário (${esc(S.user.email)}) não está na tabela <b>profiles</b>. Rode o SQL de configuração ou peça a um administrador.</p><button class="btn" data-act="logout">Sair</button></div>`;return}
-  const t=S.tab,fn=this['v_'+t]||this.v_dashboard;
+  const t=S.tab,fn=this['v_'+t.replace(/-/g,'_')]||this.v_dashboard;
   $('#app').innerHTML=`<div class="adm"><aside><h2>${Pub.logo()} <span>Painel</span></h2>${TABS.map(x=>`<button class="${t===x[0]||(t==='flyer-edit'&&x[0]==='flyers')?'on':''}" data-act="tab" data-t="${x[0]}">${x[1]} ${x[2]}</button>`).join('')}<button data-act="site">🌐 Ver site</button><button data-act="logout">🚪 Sair</button></aside><main><div class="bar"><span class="modebadge ${S.cloud?'c':'l'}">${S.cloud?'☁️ Sincronizado com a Nuvem':'💻 Modo Local'}</span>${S.loadErr?`<span class="modebadge" style="background:#fee2e2;color:#991b1b">${esc(S.loadErr)}</span>`:''}</div>${fn.call(this)}</main></div>`;
   if(t==='flyer-edit')Ed.drawPages();if(t==='links')this.drawQR();
   if(!localStorage.getItem('onb_done')&&t==='dashboard'&&!this._onb){this._onb=1;setTimeout(()=>this.onboarding(),400)}
