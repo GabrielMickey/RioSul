@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ofertas da Semana | Encartes e Promoções</title>
+<meta name="description" content="Confira o encarte e as promoções da semana do nosso supermercado. Ofertas válidas enquanto durarem os estoques.">
+<meta name="theme-color" content="#d71920" id="themeColor">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ofertas da Semana" id="ogTitle">
+<meta property="og:description" content="Confira as promoções da semana." id="ogDesc">
+<meta property="og:image" content="" id="ogImage">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="" id="canon">
+<link rel="icon" href="data:," id="favicon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="fontLink" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--primary:#d71920;--secondary:#ffc20e;--bg:#f5f5f2;--btn:#d71920;--ink:#1c1c1e;--mut:#6b6b73;--line:#e6e6e0;--card:#fff;--ok:#16a34a;--blue:#2563eb;--font:'Poppins',system-ui,sans-serif;--r:16px}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:var(--font),system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45;min-height:100vh;font-size:15px}
+body.noscroll{overflow:hidden}
+img{max-width:100%;display:block}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+[hidden]{display:none!important}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--btn);color:#fff;padding:13px 20px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;transition:transform .15s,filter .15s;min-height:46px;border:2px solid transparent}
+.btn:hover{filter:brightness(1.08)}.btn:active{transform:scale(.97)}
+.btn.sec{background:#fff;color:var(--ink);border-color:var(--line)}
+.btn.ghost{background:transparent;color:var(--btn);border-color:var(--btn)}
+.btn.ok{background:var(--ok)}.btn.dark{background:#1c1c1e}.btn.danger{background:#dc2626}
+.btn.sm{padding:8px 14px;min-height:36px;font-size:13px}
+.btn[disabled]{opacity:.5;pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;background:#eee;color:#444;white-space:nowrap}
+.badge.ativo{background:#dcfce7;color:#166534}.badge.agendado{background:#dbeafe;color:#1e40af}.badge.rascunho{background:#e5e7eb;color:#4b5563}.badge.encerrado{background:#f1efe9;color:#8a8577}.badge.arquivado{background:#fef3c7;color:#92400e}
+.badge.hot{background:var(--secondary);color:#222}.badge.late{background:#dc2626;color:#fff;animation:pulse 1.4s infinite}
+@keyframes pulse{50%{transform:scale(1.06)}}
+.sk{position:relative;background:linear-gradient(90deg,#ebebe6 25%,#f6f6f2 50%,#ebebe6 75%);background-size:200% 100%;animation:sh 1.2s infinite;min-height:60vw}
+.sk img{opacity:0}
+@keyframes sh{to{background-position:-200% 0}}
+#toasts{position:fixed;left:0;right:0;bottom:90px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:9999;pointer-events:none;padding:0 12px}
+.toast{background:#1c1c1e;color:#fff;padding:12px 18px;border-radius:12px;font-size:14px;font-weight:500;box-shadow:0 8px 24px #0004;animation:up .25s;max-width:440px}
+.toast.err{background:#b91c1c}.toast.ok{background:#15803d}
+@keyframes up{from{transform:translateY(12px);opacity:0}}
+/* PUBLIC */
+.top{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 2px 12px #0000000a}
+.top-in{max-width:1100px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;flex:1;min-width:0;text-decoration:none}
+.logo{width:44px;height:44px;border-radius:12px;object-fit:contain;background:var(--primary);color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px;flex:none}
+.brand b{display:block;font-size:16px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.brand small{color:var(--mut);font-size:12px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.storebtn{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--line);padding:8px 12px;border-radius:999px;font-weight:600;font-size:13px;max-width:46vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero{background:linear-gradient(135deg,var(--primary),color-mix(in srgb,var(--primary) 70%,#000));color:#fff;padding:28px 16px 34px;text-align:center;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:var(--secondary);opacity:.22}
+.hero h1{font-size:clamp(28px,7vw,48px);font-weight:800;letter-spacing:-.5px;line-height:1.1;position:relative}
+.hero p{opacity:.95;margin-top:8px;position:relative}
+.period{display:inline-block;margin-top:14px;background:var(--secondary);color:#222;padding:9px 18px;border-radius:999px;font-weight:800;font-size:14px;position:relative}
+.wrap{max-width:1100px;margin:auto;padding:18px 14px 120px}
+.sec-t{font-size:22px;font-weight:800;margin:28px 0 12px;display:flex;align-items:center;gap:8px}
+.card{background:var(--card);border-radius:var(--r);box-shadow:0 2px 14px #00000012;overflow:hidden}
+.fl-head{padding:16px}
+.fl-head h2{font-size:20px;font-weight:800}
+.fl-head p{color:var(--mut);font-size:14px;margin-top:4px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;background:var(--bg);border-radius:999px;padding:4px;border:1px solid var(--line)}
+.seg button{padding:8px 16px;border-radius:999px;font-weight:600;font-size:13px}
+.seg button.on{background:var(--primary);color:#fff}
+.pages.v{display:flex;flex-direction:column;gap:10px;max-width:760px;margin:0 auto}
+.pg{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px #0001;cursor:zoom-in}
+.pg img{width:100%;height:auto}
+.carw{position:relative;max-width:640px;margin:0 auto}
+.car{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;scrollbar-width:none}
+.car::-webkit-scrollbar{display:none}
+.car .pg{flex:0 0 100%;scroll-snap-align:center}
+.cnav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:#fffd;box-shadow:0 2px 10px #0004;font-size:22px;font-weight:700;z-index:2}
+.cnav.l{left:6px}.cnav.r{right:6px}
+.dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.dots i{width:8px;height:8px;border-radius:50%;background:#cfcfc8}.dots i.on{background:var(--primary);width:22px;border-radius:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.pc img{width:100%;aspect-ratio:4/5;object-fit:cover;cursor:zoom-in;background:#eee}
+.pc .b{padding:14px}.pc h3{font-size:17px;font-weight:800}.pc p{color:var(--mut);font-size:13px;margin:4px 0 10px}
+.pc .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0;scrollbar-width:none}
+.chip{flex:none;padding:9px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);font-weight:600;font-size:13px;text-decoration:none}
+.chip.on{background:var(--primary);color:#fff;border-color:var(--primary)}
+.empty{text-align:center;padding:44px 20px;color:var(--mut)}.empty b{display:block;font-size:18px;color:var(--ink);margin-bottom:6px}
+.banner{background:#fff7d6;border:1px solid #f3dc82;border-radius:14px;padding:12px 14px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:14px;font-weight:600;font-size:14px}
+.warn{background:#fee2e2;border-color:#fca5a5}
+.store-c{padding:16px;display:flex;flex-direction:column;gap:6px}
+.store-c h3{font-size:17px;font-weight:800}.store-c p{font-size:13px;color:var(--mut)}
+.store-c img{width:100%;height:120px;object-fit:cover;border-radius:10px;margin-bottom:6px}
+.foot{background:#1c1c1e;color:#d8d8d8;padding:30px 16px 110px;text-align:center;font-size:13px}
+.foot a{color:#fff;margin:0 8px;font-weight:600}.foot .legal{max-width:640px;margin:14px auto 0;opacity:.8}
+.fab{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:60;background:#25d366;color:#fff;padding:14px 20px;border-radius:999px;font-weight:700;box-shadow:0 6px 22px #0005;text-decoration:none;display:flex;gap:8px;align-items:center}
+.cta-bar{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:60;background:var(--btn);color:#fff;padding:14px 20px;border-radius:999px;font-weight:700;box-shadow:0 6px 22px #0005;text-decoration:none}
+.sheetbg{position:fixed;inset:0;background:#000a;z-index:200;display:flex;align-items:flex-end;justify-content:center;animation:fd .2s}
+@keyframes fd{from{opacity:0}}
+.sheet{background:#fff;width:100%;max-width:560px;max-height:92vh;overflow:auto;border-radius:22px 22px 0 0;padding:18px;animation:sl .25s}
+.sheet.wide{max-width:860px}
+@keyframes sl{from{transform:translateY(40px)}}
+.sheet h3{font-size:19px;font-weight:800;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.sheet .x{font-size:22px;width:36px;height:36px;border-radius:50%;background:var(--bg)}
+.opt{display:flex;width:100%;text-align:left;gap:12px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:14px;margin-bottom:8px;background:#fff}
+.opt.on{border-color:var(--primary);background:color-mix(in srgb,var(--primary) 8%,#fff)}
+.opt b{display:block}.opt small{color:var(--mut)}
+@media(min-width:700px){.sheetbg{align-items:center}.sheet{border-radius:22px}}
+#lb{position:fixed;inset:0;background:#000f;z-index:300;display:flex;flex-direction:column}
+.lb-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;color:#fff;font-weight:600}
+.lb-bar button{color:#fff;font-size:22px;width:44px;height:44px}
+.lb-stage{flex:1;overflow:auto;display:flex;align-items:center;justify-content:center;min-height:0}
+.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;cursor:zoom-in}
+.lb-stage.z{display:block}.lb-stage.z img{max-width:none;max-height:none;width:230%;cursor:zoom-out}
+.lb-nav{position:absolute;top:50%;width:48px;height:64px;color:#fff;font-size:42px;background:#0006;z-index:2;transform:translateY(-50%)}
+.lb-nav.l{left:0;border-radius:0 12px 12px 0}.lb-nav.r{right:0;border-radius:12px 0 0 12px}
+/* ADMIN */
+.adm{display:flex;min-height:100vh;background:#f1f2f6;color:#1c1c1e}
+.adm aside{width:230px;background:#15171e;color:#cfd2dc;padding:16px 10px;position:sticky;top:0;height:100vh;overflow:auto;flex:none}
+.adm aside h2{color:#fff;font-size:16px;padding:6px 10px 16px;display:flex;gap:8px;align-items:center}
+.adm aside button{display:flex;width:100%;gap:10px;padding:11px 12px;border-radius:10px;color:inherit;font-weight:600;font-size:14px;text-align:left}
+.adm aside button:hover{background:#ffffff14}.adm aside button.on{background:var(--primary);color:#fff}
+.adm main{flex:1;min-width:0;padding:20px 22px 80px}
+.adm .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+.adm h1{font-size:24px;font-weight:800;flex:1}
+.modebadge{padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700}
+.modebadge.l{background:#fef3c7;color:#92400e}.modebadge.c{background:#dcfce7;color:#166534}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:18px}
+.stat{background:#fff;border-radius:14px;padding:14px;box-shadow:0 1px 6px #0001}
+.stat b{display:block;font-size:28px;font-weight:800;line-height:1.1}.stat span{font-size:12px;color:var(--mut);font-weight:600}
+.pnl{background:#fff;border-radius:14px;padding:16px;box-shadow:0 1px 6px #0001;margin-bottom:16px}
+.pnl h3{font-size:16px;font-weight:800;margin-bottom:10px}
+.f{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.f label{display:flex;flex-direction:column;gap:5px;font-size:13px;font-weight:600;color:#444}
+.f .full{grid-column:1/-1}
+.f input,.f select,.f textarea,.fi{border:1px solid #d5d7df;border-radius:10px;padding:10px 12px;background:#fff;width:100%;font-weight:400;font-size:14px}
+.f textarea{min-height:80px;resize:vertical}
+.f input[type=checkbox]{width:auto}.f .ck{flex-direction:row;align-items:center;gap:8px}
+.f input[type=color]{padding:2px;height:42px}
+.rows .r{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #eceef3;flex-wrap:wrap}
+.rows .r:last-child{border:0}
+.rows .th{width:54px;height:68px;border-radius:8px;object-fit:cover;background:#e5e7eb;flex:none}
+.rows .inf{flex:1;min-width:200px}.rows .inf b{display:block}.rows .inf small{color:var(--mut)}
+.rows .acts{display:flex;gap:6px;flex-wrap:wrap}
+.drop{display:block;border:2px dashed #b9bdc9;border-radius:14px;padding:26px;text-align:center;background:#fafbff;cursor:pointer;font-weight:600;color:#555}
+.drop.over{border-color:var(--primary);background:#fff0f0}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-top:12px}
+.pgi{position:relative;background:#fff;border:2px solid #e1e3ea;border-radius:10px;overflow:hidden;cursor:grab}
+.pgi.cv{border-color:var(--secondary);box-shadow:0 0 0 2px var(--secondary)}
+.pgi img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.pgi .n{position:absolute;top:4px;left:4px;background:#000a;color:#fff;font-size:11px;padding:2px 7px;border-radius:99px;font-weight:700}
+.pgi .tb{display:flex;justify-content:space-between;padding:3px;font-size:12px}
+.pgi .tb button{width:26px;height:26px;border-radius:6px;background:#f1f2f6}
+.pgi small{display:block;text-align:center;font-size:11px;color:#666;padding-bottom:3px}.pgi small.big{color:#dc2626;font-weight:700}
+pre.sql{background:#0f1117;color:#c9f;padding:14px;border-radius:12px;max-height:340px;overflow:auto;font-size:12px;white-space:pre}
+table.t{width:100%;border-collapse:collapse;font-size:14px}
+table.t th,table.t td{padding:9px 10px;border-bottom:1px solid #eceef3;text-align:left}
+table.t td.n,table.t th.n{text-align:right}
+.phone{width:min(390px,100%);height:70vh;margin:auto;border:10px solid #111;border-radius:34px;overflow:auto;background:var(--bg)}
+.login{max-width:400px;margin:10vh auto;background:#fff;padding:28px;border-radius:20px;box-shadow:0 8px 30px #0002}
+.login h1{font-size:24px;margin-bottom:6px}
+.sw{display:flex;gap:8px;flex-wrap:wrap}
+.prog{height:10px;background:#e5e7eb;border-radius:9px;overflow:hidden;margin:12px 0}.prog i{display:block;height:100%;background:var(--ok);width:0;transition:width .2s}
+@media(max-width:820px){.adm{flex-direction:column}.adm aside{width:100%;height:auto;position:static;display:flex;gap:4px;overflow-x:auto;padding:8px}.adm aside h2{display:none}.adm aside button{width:auto;white-space:nowrap}.adm main{padding:14px 12px 80px}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="lb" hidden role="dialog" aria-modal="true" aria-label="Visualizador de imagem"></div>
+<div id="modal"></div>
+<div id="toasts" aria-live="polite"></div>
+<noscript>Ative o JavaScript para visualizar as ofertas.</noscript>
+<script>
+'use strict';
+/* ===== UTIL ===== */
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>crypto.randomUUID?crypto.randomUUID():'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.random()*16|0;return(c=='x'?r:r&3|8).toString(16)});
+const pad=n=>String(n).padStart(2,'0');
+const todayStr=()=>{const d=new Date();return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`};
+const dayNum=s=>{const[y,m,d]=String(s).slice(0,10).split('-').map(Number);return Math.round(Date.UTC(y,m-1,d)/864e5)};
+const addDays=(s,n)=>{const d=new Date((dayNum(s)+n)*864e5);return `${d.getUTCFullYear()}-${pad(d.getUTCMonth()+1)}-${pad(d.getUTCDate())}`};
+const fmtD=s=>s?`${s.slice(8,10)}/${s.slice(5,7)}`:'';
+const fmtDY=s=>s?`${s.slice(8,10)}/${s.slice(5,7)}/${s.slice(0,4)}`:'';
+const fmtB=n=>n>1048576?(n/1048576).toFixed(1)+' MB':Math.round(n/1024)+' KB';
+const slugify=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,80);
+const debounce=(f,ms=250)=>{let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>f(...a),ms)}};
+const safeUrl=u=>{u=String(u||'').trim();return /^(https?:\/\/|tel:|mailto:|data:image\/|blob:)/i.test(u)?u:''};
+const httpUrl=u=>{u=String(u||'').trim();if(!u)return'';if(!/^https?:\/\//i.test(u))u='https://'+u;return u};
+const digits=s=>String(s||'').replace(/\D/g,'');
+const waNum=s=>{const d=digits(s);return d.length<=11?'55'+d:d};
+const pick=(o,cols)=>{const r={};cols.forEach(c=>{if(o[c]!==undefined)r[c]=o[c]});return r};
+const loadScript=src=>new Promise((res,rej)=>{if(document.querySelector(`script[src="${src}"]`))return res();const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=()=>rej(new Error('Falha ao carregar biblioteca externa'));document.head.appendChild(s)});
+const blobToDataURL=b=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result);r.onerror=rej;r.readAsDataURL(b)});
+const download=(name,blob)=>{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)};
+const baseUrl=()=>location.origin+location.pathname;
+const ToastManager={show(m,t=''){const e=document.createElement('div');e.className='toast '+t;e.textContent=m;$('#toasts').appendChild(e);setTimeout(()=>e.remove(),t==='err'?5500:3000)}};
+const toast=(m,t)=>ToastManager.show(m,t);
+
+/* ===== CONSTANTES ===== */
+const COLS={
+ flyers:['id','title','slug','description','campaign','start_date','end_date','all_stores','store_ids','cover_url','pdf_url','featured','published','archived','deleted_at','notes','demo','created_by','created_by_email','created_at','updated_at','published_at'],
+ stores:['id','name','address','neighborhood','city','phone','whatsapp','maps_url','hours','image_url','active','demo','created_at'],
+ promotions:['id','title','description','image_url','start_date','end_date','all_stores','store_ids','cta_label','link_url','featured','position','published','archived','demo','created_at','updated_at']
+};
+const DEF={name:'Supermercado Exemplo',slogan:'Qualidade e preço baixo toda semana',logo:'',favicon:'',primary:'#d71920',secondary:'#ffc20e',bg:'#f5f5f2',btn:'#d71920',font:'Poppins',hero:'OFERTAS DA SEMANA 🔥',heroSub:'Confira nossas promoções e aproveite antes que acabem.',whatsapp:'',waMessage:'Olá! Vi as ofertas pelo encarte online e gostaria de mais informações.',site:'',instagram:'',facebook:'',tiktok:'',footer:'',policy:'',legal:'Ofertas válidas durante o período informado ou enquanto durarem os estoques. Consulte condições na loja.',historyPublic:true};
+const FONTS=['Poppins','Inter','Montserrat','Nunito','Roboto','Open Sans'];
+const CDN_SB='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
+const CDN_QR='https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js';
+
+/* ===== STATE ===== */
+const S={settings:{...DEF},stores:[],flyers:[],promos:[],events:[],cloud:false,cloudErr:'',user:null,isAdmin:null,storeId:localStorage.getItem('store_id')||'',tab:'dashboard',loadErr:''};
+const isAdminRoute=()=>/^#admin/.test(location.hash);
+
+/* ===== LOCAL DB (IndexedDB) ===== */
+const LocalDB={db:null,mem:{},bad:false,
+ open(){if(this.db||this.bad)return Promise.resolve(this.db);return new Promise(res=>{try{const r=indexedDB.open('encartes_db',1);r.onupgradeneeded=()=>r.result.createObjectStore('kv');r.onsuccess=()=>{this.db=r.result;res(this.db)};r.onerror=()=>{this.bad=true;res(null)}}catch{this.bad=true;res(null)}})},
+ async get(k,d){const db=await this.open();if(!db)return this.mem[k]??d;return new Promise(res=>{const q=db.transaction('kv').objectStore('kv').get(k);q.onsuccess=()=>res(q.result===undefined?d:q.result);q.onerror=()=>res(d)})},
+ async set(k,v){const db=await this.open();if(!db){this.mem[k]=v;return}return new Promise((res,rej)=>{const t=db.transaction('kv','readwrite');t.objectStore('kv').put(v,k);t.oncomplete=res;t.onerror=()=>rej(t.error)})}
+};
+
+/* ===== SUPABASE ===== */
+const SB={client:null,
+ cfg(){try{return JSON.parse(localStorage.getItem('sb_cfg')||'null')}catch{return null}},
+ async init(){const c=this.cfg();if(!c||!c.url||!c.key)return false;if(!window.supabase)await loadScript(CDN_SB);this.client=window.supabase.createClient(c.url,c.key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});return true},
+ async test(url,key){if(!window.supabase)await loadScript(CDN_SB);const c=window.supabase.createClient(url,key);const r=await c.from('settings').select('id').limit(1);if(r.error)throw r.error;return true}
+};
+
+/* ===== AUTH ===== */
+const AuthManager={
+ async start(){if(!SB.client)return;const{data}=await SB.client.auth.getSession();S.user=data.session?.user||null;await this.check();
+  SB.client.auth.onAuthStateChange(async(ev,ses)=>{const had=!!S.user;S.user=ses?.user||null;if(ev==='SIGNED_OUT'&&had&&isAdminRoute())toast('Sessão encerrada. Entre novamente.','err');if(ev==='SIGNED_IN'||ev==='SIGNED_OUT'){await this.check();if(isAdminRoute())Admin.render()}})},
+ async check(){if(!S.user){S.isAdmin=null;return}const r=await SB.client.from('profiles').select('id').eq('id',S.user.id).maybeSingle();S.isAdmin=!!r.data},
+ async login(email,pw){const r=await SB.client.auth.signInWithPassword({email,password:pw});if(r.error)throw r.error;S.user=r.data.user;await this.check();await App.load()},
+ async logout(){if(SB.client)await SB.client.auth.signOut();S.user=null;S.isAdmin=null;Admin.render()},
+ async reset(email){const r=await SB.client.auth.resetPasswordForEmail(email,{redirectTo:baseUrl()+'#admin'});if(r.error)throw r.error}
+};
+
+/* ===== DATA LAYER ===== */
+const Data={
+ async loadAll(){
+  if(S.cloud){const c=SB.client;
+   const[st,fl,pr,se]=await Promise.all([c.from('stores').select('*').order('name'),c.from('flyers').select('*, flyer_pages(*)').order('start_date',{ascending:false}),c.from('promotions').select('*').order('position'),c.from('settings').select('data').eq('id',1).maybeSingle()]);
+   for(const r of[st,fl,pr,se])if(r.error)throw r.error;
+   S.stores=st.data||[];S.promos=pr.data||[];S.settings={...DEF,...(se.data?.data||{})};
+   S.flyers=(fl.data||[]).map(f=>{const pages=(f.flyer_pages||[]).sort((a,b)=>a.position-b.position).map(p=>({id:p.id,url:p.url,size:p.size||0}));delete f.flyer_pages;f.pages=pages;return f});
+   try{localStorage.setItem('cache_pub',JSON.stringify({s:S.settings,st:S.stores,fl:S.flyers.filter(f=>f.published&&!f.archived),pr:S.promos.filter(p=>p.published&&!p.archived)}))}catch{}
+  }else{
+   S.settings={...DEF,...(await LocalDB.get('settings',{}))};S.stores=await LocalDB.get('stores',[]);S.flyers=await LocalDB.get('flyers',[]);S.promos=await LocalDB.get('promotions',[]);
+  }
+ },
+ async loadEvents(){
+  if(S.cloud){if(!S.user){S.events=[];return}let all=[];for(let i=0;i<10;i++){const r=await SB.client.from('analytics_events').select('event,flyer_id,store_id,utm,created_at').order('created_at',{ascending:false}).range(i*1000,i*1000+999);if(r.error)break;all=all.concat(r.data);if(r.data.length<1000)break}S.events=all}
+  else S.events=await LocalDB.get('events',[]);
+ },
+ arr(k){return k==='flyers'?S.flyers:k==='stores'?S.stores:S.promos},
+ setArr(k,a){if(k==='flyers')S.flyers=a;else if(k==='stores')S.stores=a;else S.promos=a},
+ async save(k,row){
+  row.updated_at=new Date().toISOString();
+  if(S.cloud){const c=SB.client;let r=await c.from(k).upsert(pick(row,COLS[k]));if(r.error)throw r.error;
+   if(k==='flyers'){r=await c.from('flyer_pages').delete().eq('flyer_id',row.id);if(r.error)throw r.error;if(row.pages.length){r=await c.from('flyer_pages').insert(row.pages.map((p,i)=>({flyer_id:row.id,position:i,url:p.url,size:p.size||0})));if(r.error)throw r.error}}}
+  const a=this.arr(k).filter(x=>x.id!==row.id);a.push(row);this.setArr(k,a);
+  if(!S.cloud)await LocalDB.set(k,a);
+ },
+ async remove(k,id){
+  if(S.cloud){const r=await SB.client.from(k).delete().eq('id',id);if(r.error)throw r.error}
+  const a=this.arr(k).filter(x=>x.id!==id);this.setArr(k,a);if(!S.cloud)await LocalDB.set(k,a);
+ },
+ async saveSettings(s){S.settings={...DEF,...s};if(S.cloud){const r=await SB.client.from('settings').upsert({id:1,data:S.settings,updated_at:new Date().toISOString()});if(r.error)throw r.error}else await LocalDB.set('settings',S.settings)},
+ async upload(bucket,blob,path){
+  if(!S.cloud)return blobToDataURL(blob);
+  const c=SB.client;const r=await c.storage.from(bucket).upload(path,blob,{contentType:blob.type||'application/octet-stream',cacheControl:'31536000',upsert:true});
+  if(r.error)throw r.error;return c.storage.from(bucket).getPublicUrl(path).data.publicUrl;
+ }
+};
+
+/* ===== STATUS / DATAS ===== */
+const flyerStatus=f=>{if(!f)return'';if(f.archived||f.deleted_at)return'arquivado';if(!f.published)return'rascunho';const t=todayStr(),s=f.start_date||'0000-01-01',e=f.end_date||'9999-12-31';return t<s?'agendado':t>e?'encerrado':'ativo'};
+const daysLeft=f=>f.end_date?dayNum(f.end_date)-dayNum(todayStr()):999;
+const timeLabel=f=>{const st=flyerStatus(f),t=dayNum(todayStr());
+ if(st==='agendado'){const n=dayNum(f.start_date)-t;return n===1?'Começa amanhã':`Começa em ${n} dias`}
+ if(st==='ativo'){if(!f.end_date)return'';const n=daysLeft(f);return n===0?'Termina hoje':n===1?'Termina amanhã':`Termina em ${n} dias`}
+ if(st==='encerrado'){const n=t-dayNum(f.end_date);return n===1?'Encerrado há 1 dia':`Encerrado há ${n} dias`}
+ return''};
+const statusLabel={ativo:'Ativo',agendado:'Agendado',rascunho:'Rascunho',encerrado:'Encerrado',arquivado:'Arquivado'};
+const badge=f=>{const s=flyerStatus(f);return `<span class="badge ${s}">${statusLabel[s]}</span>`};
+const lastDaysBadge=f=>{if(flyerStatus(f)!=='ativo'||!f.end_date)return'';const n=daysLeft(f);return n===0?'<span class="badge late">TERMINA HOJE</span>':n===1?'<span class="badge late">TERMINA AMANHÃ</span>':n<=2?'<span class="badge hot">ÚLTIMOS DIAS</span>':''};
+const period=f=>f.start_date&&f.end_date?`Ofertas válidas de ${fmtD(f.start_date)} a ${fmtD(f.end_date)}`:f.end_date?`Ofertas válidas até ${fmtD(f.end_date)}`:'';
+
+/* ===== ANALYTICS ===== */
+const AnalyticsManager={seen:new Set(),sid:localStorage.getItem('sid')||(()=>{const s=uid();localStorage.setItem('sid',s);return s})(),
+ utm(){try{const p=new URLSearchParams(location.search),k=['utm_source','utm_medium','utm_campaign','utm_content'];const cur={};k.forEach(x=>{if(p.get(x))cur[x]=p.get(x).slice(0,80)});if(Object.keys(cur).length)sessionStorage.setItem('utm',JSON.stringify(cur));return JSON.parse(sessionStorage.getItem('utm')||'{}')}catch{return{}}},
+ track(event,x={}){if(isAdminRoute())return;const row={event,flyer_id:x.flyer||null,promo_id:x.promo||null,store_id:S.storeId||null,utm:this.utm(),session:this.sid,created_at:new Date().toISOString()};
+  if(S.cloud&&SB.client)SB.client.from('analytics_events').insert(row).then(()=>{},()=>{});
+  else LocalDB.get('events',[]).then(a=>{a.push(row);if(a.length>5000)a.splice(0,a.length-5000);LocalDB.set('events',a)});
+ },
+ once(k,e,x){if(this.seen.has(k))return;this.seen.add(k);this.track(e,x)}
+};
+
+/* ===== BRAND / SEO ===== */
+function applyBrand(){const s=S.settings,r=document.documentElement.style;r.setProperty('--primary',s.primary);r.setProperty('--secondary',s.secondary);r.setProperty('--bg',s.bg);r.setProperty('--btn',s.btn);r.setProperty('--font',`'${s.font}'`);
+ $('#themeColor').content=s.primary;
+ const fl=$('#fontLink'),h=`https://fonts.googleapis.com/css2?family=${encodeURIComponent(s.font).replace(/%20/g,'+')}:wght@400;500;600;700;800&display=swap`;if(fl.href!==h)fl.href=h;
+ const ic=s.favicon||s.logo;if(ic)$('#favicon').href=safeUrl(ic)}
+function setMeta(title,desc,img,url){document.title=title;$('#ogTitle').content=title;$('#ogDesc').content=desc;$('#ogImage').content=img&&!img.startsWith('data:')?img:'';$('#canon').href=url||baseUrl();let m=document.querySelector('meta[name=description]');if(m)m.content=desc}
+
+/* ===== MODAL / LIGHTBOX ===== */
+const Modal={open(html,o={}){this.close();$('#modal').innerHTML=`<div class="sheetbg" data-act="mbg"><div class="sheet ${o.wide?'wide':''}" role="dialog" aria-modal="true" aria-label="${esc(o.title||'')}"><h3><span>${esc(o.title||'')}</span><button class="x" data-act="mclose" aria-label="Fechar">✕</button></h3>${html}</div></div>`;document.body.classList.add('noscroll');const f=$('#modal [autofocus],#modal input,#modal button.opt');f&&f.focus()},
+ close(){$('#modal').innerHTML='';if($('#lb').hidden)document.body.classList.remove('noscroll')}};
+const LB={list:[],i:0,z:false,
+ open(l,i){this.list=l;this.i=i;this.z=false;this.draw();document.body.classList.add('noscroll')},
+ draw(){const el=$('#lb');el.hidden=false;el.innerHTML=`<div class="lb-bar"><span>${this.i+1} / ${this.list.length}</span><div><button data-act="lbzoom" aria-label="Zoom">🔍</button><button data-act="lbclose" aria-label="Fechar">✕</button></div></div><div class="lb-stage${this.z?' z':''}"><img src="${esc(this.list[this.i])}" alt="Página ${this.i+1} do encarte" data-act="lbzoom"></div>${this.list.length>1?'<button class="lb-nav l" data-act="lbprev" aria-label="Página anterior">‹</button><button class="lb-nav r" data-act="lbnext" aria-label="Próxima página">›</button>':''}`},
+ go(d){this.i=(this.i+d+this.list.length)%this.list.length;this.z=false;this.draw()},
+ close(){$('#lb').hidden=true;$('#lb').innerHTML='';if(!$('#modal').innerHTML)document.body.classList.remove('noscroll')}};
+let tx=0;document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',e=>{if(!$('#lb').hidden&&!LB.z&&LB.list.length>1){const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>60)LB.go(d<0?1:-1)}},{passive:true});
+document.addEventListener('keydown',e=>{if(!$('#lb').hidden){if(e.key==='Escape')LB.close();if(e.key==='ArrowRight')LB.go(1);if(e.key==='ArrowLeft')LB.go(-1)}else if(e.key==='Escape'&&$('#modal').innerHTML)Modal.close()});
+
+/* ===== SHARE ===== */
+const ShareManager={url(f){return f?`${baseUrl()}?encarte=${encodeURIComponent(f.slug)}`:baseUrl()},
+ open(f){const u=this.url(f),t=f?`${S.settings.name} — ${f.title} ${period(f)}`:`${S.settings.name} — Ofertas da semana`;window._sh={u,t,f};
+  Modal.open(`<button class="opt" data-act="shwa"><span>💬</span><span><b>WhatsApp</b><small>Enviar para contatos e grupos</small></span></button>${navigator.share?'<button class="opt" data-act="shnat"><span>📲</span><span><b>Outros aplicativos</b><small>Instagram, Telegram, mensagens…</small></span></button>':''}<button class="opt" data-act="shcopy"><span>🔗</span><span><b>Copiar link</b><small>${esc(u)}</small></span></button>`,{title:'Compartilhar ofertas'})},
+ async native(){const{u,t,f}=window._sh;try{await navigator.share({title:t,text:t,url:u});AnalyticsManager.track('share',{flyer:f?.id});Modal.close()}catch{}},
+ wa(){const{u,t,f}=window._sh;AnalyticsManager.track('share',{flyer:f?.id});window.open('https://wa.me/?text='+encodeURIComponent(t+'\n'+u),'_blank','noopener');Modal.close()},
+ async copy(txt){try{await navigator.clipboard.writeText(txt)}catch{const a=document.createElement('textarea');a.value=txt;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}toast('Link copiado!','ok')}};
+
+/* ===== PUBLIC ===== */
+const Pub={view:'vertical',car:0,
+ vis(f){return f.published&&!f.archived&&!f.deleted_at},
+ forStore(x){return x.all_stores||(S.storeId&&(x.store_ids||[]).includes(S.storeId))},
+ store(){return S.stores.find(s=>s.id===S.storeId&&s.active!==false)||null},
+ waLink(){const st=this.store(),n=st?.whatsapp||S.settings.whatsapp;return n?`https://wa.me/${waNum(n)}?text=${encodeURIComponent(S.settings.waMessage||'')}`:''},
+ mapsLink(st){return st.maps_url?safeUrl(httpUrl(st.maps_url)):'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent([st.address,st.neighborhood,st.city].filter(Boolean).join(', '))},
+ logo(){const s=S.settings;return s.logo?`<img class="logo" style="background:#fff" src="${esc(safeUrl(s.logo))}" alt="Logo ${esc(s.name)}">`:`<span class="logo" aria-hidden="true">${esc((s.name||'S')[0])}</span>`},
+ pagesHTML(f){const p=f.pages||[];if(!p.length)return'<div class="empty"><b>Encarte sem páginas</b></div>';
+  const img=(x,i)=>`<figure class="pg sk" data-act="lb" data-i="${i}"><img src="${esc(x.url)}" alt="${esc(f.title)} — página ${i+1}" loading="${i<2?'eager':'lazy'}" decoding="async" onload="this.parentNode.classList.remove('sk')" onerror="this.parentNode.classList.remove('sk')"></figure>`;
+  if(this.view==='car')return `<div class="carw"><button class="cnav l" data-act="carprev" aria-label="Anterior">‹</button><div class="car" id="car">${p.map(img).join('')}</div><button class="cnav r" data-act="carnext" aria-label="Próxima">›</button><div class="dots" id="dots">${p.map((_,i)=>`<i class="${i===0?'on':''}"></i>`).join('')}</div></div>`;
+  return `<div class="pages v">${p.map(img).join('')}</div>`},
+ flyerHTML(f,preview){const st=flyerStatus(f);
+  const btns=`<div class="row" style="margin-top:12px"><button class="btn" data-act="share" data-id="${f.id}">📤 Compartilhar ofertas</button>${f.pdf_url?`<a class="btn sec" href="${esc(safeUrl(f.pdf_url))}" download data-act="pdfdl" data-id="${f.id}" target="_blank" rel="noopener">⬇️ Baixar encarte</a><a class="btn sec" href="${esc(safeUrl(f.pdf_url))}" target="_blank" rel="noopener" data-act="pdfdl" data-id="${f.id}">📄 Abrir PDF</a>`:''}</div>`;
+  return `<section class="card" id="flyerBox" aria-labelledby="ft"><div class="fl-head"><div class="row" style="margin-bottom:6px">${lastDaysBadge(f)}${f.featured?'<span class="badge hot">🔥 DESTAQUE</span>':''}${st==='encerrado'?'<span class="badge encerrado">Encerrado</span>':''}<span style="color:var(--mut);font-size:13px;font-weight:600">${timeLabel(f)}</span></div><h2 id="ft">${esc(f.title)}</h2><p>${esc(period(f))}${f.campaign?' · '+esc(f.campaign):''}</p>${f.description?`<p style="color:var(--ink);margin-top:8px">${esc(f.description)}</p>`:''}${btns}<div class="row" style="margin-top:14px"><div class="seg" role="group" aria-label="Modo de visualização"><button class="${this.view==='vertical'?'on':''}" data-act="view" data-v="vertical">☰ Vertical</button><button class="${this.view==='car'?'on':''}" data-act="view" data-v="car">⇄ Carrossel</button></div><span style="font-size:12px;color:var(--mut)">Toque na imagem para ampliar</span></div></div><div style="padding:0 10px 16px">${st==='agendado'?`<div class="empty"><b>Este encarte começa em ${fmtDY(f.start_date)}</b>Volte nessa data para conferir as ofertas.</div>`:this.pagesHTML(f)}</div></section>`},
+ promoCard(p){const st=flyerStatus(p),link=p.link_url?safeUrl(httpUrl(p.link_url)):'';
+  return `<article class="card pc">${p.image_url?`<img src="${esc(p.image_url)}" alt="${esc(p.title)}" loading="lazy" decoding="async" data-act="lbp" data-id="${p.id}">`:''}<div class="b"><div class="tags">${lastDaysBadge(p)}${p.featured?'<span class="badge hot">🔥</span>':''}</div><h3>${esc(p.title)}</h3><p>${esc(p.description||'')}${p.start_date||p.end_date?`<br><b>${p.start_date?fmtD(p.start_date):''}${p.end_date?' a '+fmtD(p.end_date):''}</b>`:''}</p>${link?`<a class="btn sm" href="${esc(link)}" target="_blank" rel="noopener" data-act="promoclick" data-id="${p.id}">${esc(p.cta_label||'Saiba mais')}</a>`:''}</div></article>`},
+ render(){
+  const s=S.settings;applyBrand();const stores=S.stores.filter(x=>x.active!==false);
+  if(!S.storeId&&stores.length===1)S.storeId=stores[0].id;
+  const store=this.store(),qs=new URLSearchParams(location.search).get('encarte');
+  const fl=S.flyers.filter(f=>this.vis(f)&&this.forStore(f));
+  const act=fl.filter(f=>flyerStatus(f)==='ativo').sort((a,b)=>(b.featured-a.featured)||(b.start_date>a.start_date?1:-1));
+  let main=qs?S.flyers.find(f=>f.slug===qs&&this.vis(f)):null;if(!main)main=act[0]||null;
+  const others=act.filter(f=>!main||f.id!==main.id);
+  const promos=S.promos.filter(p=>this.vis(p)&&this.forStore(p)&&['ativo'].includes(flyerStatus(p)));
+  const feat=promos.filter(p=>p.featured).sort((a,b)=>(a.position||0)-(b.position||0)),rest=promos.filter(p=>!p.featured).sort((a,b)=>(a.position||0)-(b.position||0));
+  const hist=s.historyPublic?fl.filter(f=>flyerStatus(f)==='encerrado'&&(!main||f.id!==main.id)).sort((a,b)=>b.end_date>a.end_date?1:-1).slice(0,24):[];
+  const need=stores.length>1&&!store;
+  const wa=this.waLink();
+  const soc=[['instagram','Instagram'],['facebook','Facebook'],['tiktok','TikTok'],['site','Site']].filter(x=>s[x[0]]).map(x=>`<a href="${esc(httpUrl(s[x[0]]))}" target="_blank" rel="noopener">${x[1]}</a>`).join('');
+  const wan=(store?.whatsapp||s.whatsapp)?`<a href="https://wa.me/${waNum(store?.whatsapp||s.whatsapp)}" target="_blank" rel="noopener">WhatsApp</a>`:'';
+  $('#app').innerHTML=`<header class="top"><div class="top-in"><a class="brand" href="${baseUrl()}" aria-label="${esc(s.name)} — início">${this.logo()}<span style="min-width:0"><b>${esc(s.name)}</b><small>${esc(store?store.name:s.slogan||'')}</small></span></a>${stores.length>1?`<button class="storebtn" data-act="stores" aria-label="Escolher loja">📍 ${store?esc(store.name):'Escolha sua loja'}</button>`:''}</div></header>
+  <div class="hero"><h1>${esc(s.hero||DEF.hero)}</h1><p>${esc(s.heroSub||'')}</p>${main?`<span class="period">${esc(period(main))}</span>`:''}</div>
+  <main class="wrap">${need?`<div class="banner"><span>📍 Escolha sua loja para ver as ofertas da sua unidade.</span><button class="btn sm" data-act="stores">Escolher loja</button></div>`:''}
+  ${S.loadErr?`<div class="banner warn">⚠️ ${esc(S.loadErr)}</div>`:''}
+  ${others.length?`<div class="chips" aria-label="Outras campanhas">${[main,...others].filter(Boolean).map(f=>`<a class="chip ${main&&f.id===main.id?'on':''}" href="?encarte=${encodeURIComponent(f.slug)}" data-act="nav">${esc(f.title)}</a>`).join('')}</div><div style="height:12px"></div>`:''}
+  ${main?this.flyerHTML(main):`<div class="card empty"><b>Nenhuma oferta ativa neste momento.</b>Novas promoções serão publicadas em breve.${need?'<br><br><button class="btn" data-act="stores">Escolher loja</button>':''}</div>`}
+  ${feat.length?`<h2 class="sec-t">DESTAQUES 🔥</h2><div class="grid">${feat.map(p=>this.promoCard(p)).join('')}</div>`:''}
+  ${rest.length?`<h2 class="sec-t">Promoções especiais</h2><div class="grid">${rest.map(p=>this.promoCard(p)).join('')}</div>`:''}
+  ${hist.length?`<h2 class="sec-t">Encartes anteriores</h2><div class="grid">${hist.map(f=>`<a class="card pc" style="text-decoration:none" href="?encarte=${encodeURIComponent(f.slug)}" data-act="nav">${f.cover_url?`<img src="${esc(f.cover_url)}" alt="Capa ${esc(f.title)}" loading="lazy" style="cursor:pointer">`:''}<div class="b"><h3>${esc(f.title)}</h3><p>${esc(period(f))}</p></div></a>`).join('')}</div>`:''}
+  ${stores.length?`<h2 class="sec-t" id="lojas">Nossas lojas</h2><div class="grid">${stores.map(st=>`<div class="card store-c">${st.image_url?`<img src="${esc(st.image_url)}" alt="${esc(st.name)}" loading="lazy">`:''}<h3>${esc(st.name)}${st.id===S.storeId?' ✅':''}</h3><p>${esc([st.address,st.neighborhood,st.city].filter(Boolean).join(' · '))}</p>${st.hours?`<p>🕒 ${esc(st.hours)}</p>`:''}<div class="row" style="margin-top:8px"><a class="btn sm" href="${esc(this.mapsLink(st))}" target="_blank" rel="noopener" data-act="maps" data-id="${st.id}">📍 Como chegar</a>${st.whatsapp?`<a class="btn sm ok" href="https://wa.me/${waNum(st.whatsapp)}?text=${encodeURIComponent(s.waMessage||'')}" target="_blank" rel="noopener" data-act="wa">💬 WhatsApp</a>`:''}${st.phone?`<a class="btn sm sec" href="tel:${digits(st.phone)}">📞 Ligar</a>`:''}${stores.length>1&&st.id!==S.storeId?`<button class="btn sm ghost" data-act="pickstore" data-id="${st.id}">Escolher</button>`:''}</div></div>`).join('')}</div>`:''}
+  <div class="card" style="padding:16px;margin-top:22px;font-size:13px;color:var(--mut)"><b style="color:var(--ink)">Aviso de validade</b><br>${esc(s.legal||'')}${s.policy?`<br><br>${esc(s.policy)}`:''}</div></main>
+  <footer class="foot"><div><b style="color:#fff;font-size:15px">${esc(s.name)}</b></div><div style="margin-top:10px">${soc}${wan}</div>${s.footer?`<div class="legal">${esc(s.footer)}</div>`:''}<div style="margin-top:14px;opacity:.5"><a href="#admin" style="font-weight:400;font-size:12px">Área da agência</a></div></footer>
+  ${wa?`<a class="fab" href="${esc(wa)}" target="_blank" rel="noopener" data-act="wa">💬 FALE CONOSCO</a>`:''}`;
+  if(main){setMeta(`${main.title} | ${s.name}`,`${main.title} — ${period(main)}. ${s.slogan||''}`,main.cover_url||s.logo,ShareManager.url(main));AnalyticsManager.once('fv'+main.id,'flyer_view',{flyer:main.id})}
+  else setMeta(`Ofertas da Semana | ${s.name}`,s.slogan||'Confira nossas ofertas.',s.logo,baseUrl());
+  AnalyticsManager.once('pv','page_view');
+  this.mainFlyer=main;
+ },
+ refreshFlyer(){const f=this.mainFlyer;if(f&&$('#flyerBox'))$('#flyerBox').outerHTML=this.flyerHTML(f)},
+ stores(){const st=S.stores.filter(x=>x.active!==false);Modal.open(st.map(x=>`<button class="opt ${x.id===S.storeId?'on':''}" data-act="pickstore" data-id="${x.id}"><span style="font-size:22px">📍</span><span><b>${esc(x.name)}</b><small>${esc([x.address,x.neighborhood,x.city].filter(Boolean).join(' · '))}</small></span></button>`).join(''),{title:'ESCOLHA SUA LOJA'})},
+ pick(id){S.storeId=id;localStorage.setItem('store_id',id);AnalyticsManager.track('store_select');Modal.close();this.render();window.scrollTo({top:0,behavior:'smooth'})}
+};
+
+/* ===== UPLOAD ===== */
+const UploadManager={
+ types:['image/jpeg','image/png','image/webp'],
+ async optimize(file,max=1600,q=.86){
+  if(!this.types.includes(file.type))throw new Error(`"${file.name}": formato inválido (use JPG, PNG ou WebP).`);
+  if(file.size>25*1048576)throw new Error(`"${file.name}": imagem muito grande (máx. 25 MB).`);
+  try{const bmp=await createImageBitmap(file);const r=Math.min(1,max/Math.max(bmp.width,bmp.height));const cv=document.createElement('canvas');cv.width=Math.round(bmp.width*r);cv.height=Math.round(bmp.height*r);cv.getContext('2d').drawImage(bmp,0,0,cv.width,cv.height);
+   const blob=await new Promise(res=>cv.toBlob(res,'image/webp',q));if(blob&&blob.type==='image/webp'&&(blob.size<file.size||r<1))return blob}catch{}
+  return file},
+ pdf(file){if(file.type!=='application/pdf')throw new Error('Arquivo inválido: selecione um PDF.');if(file.size>40*1048576)throw new Error('PDF muito grande (máx. 40 MB).');return file}
+};
+
+/* ===== QR ===== */
+const QRManager={async draw(cv,text,size=640){await loadScript(CDN_QR);const q=qrcode(0,'M');q.addData(text);q.make();const n=q.getModuleCount(),m=4,cs=Math.max(2,Math.floor(size/(n+m*2))),w=cs*(n+m*2);cv.width=cv.height=w;const c=cv.getContext('2d');c.fillStyle='#fff';c.fillRect(0,0,w,w);c.fillStyle='#000';for(let r=0;r<n;r++)for(let k=0;k<n;k++)if(q.isDark(r,k))c.fillRect((k+m)*cs,(r+m)*cs,cs,cs)}};
+
+/* ===== SQL ===== */
+const SQL=`-- ENCARTES — configuração do banco (execute UMA vez em Supabase > SQL Editor)
+-- Depois: Authentication > Users > Add user (crie os usuários da agência) e desative "Allow new users to sign up".
+create extension if not exists pgcrypto;
+
+create table if not exists public.profiles(
+ id uuid primary key references auth.users(id) on delete cascade,
+ email text, name text, role text default 'admin', created_at timestamptz default now());
+create or replace function public.is_admin() returns boolean language sql stable security definer set search_path=public as $$
+ select exists(select 1 from public.profiles where id=auth.uid()) $$;
+create or replace function public.handle_new_user() returns trigger language plpgsql security definer set search_path=public as $$
+ begin insert into public.profiles(id,email) values(new.id,new.email) on conflict do nothing; return new; end $$;
+drop trigger if exists on_auth_user_created on auth.users;
+create trigger on_auth_user_created after insert on auth.users for each row execute function public.handle_new_user();
+insert into public.profiles(id,email) select id,email from auth.users on conflict do nothing;
+
+create table if not exists public.settings(
+ id int primary key default 1 check(id=1), data jsonb not null default '{}', updated_at timestamptz default now());
+
+create table if not exists public.stores(
+ id uuid primary key default gen_random_uuid(),
+ name text not null, address text, neighborhood text, city text, phone text, whatsapp text,
+ maps_url text, hours text, image_url text, active boolean not null default true,
+ demo boolean default false, created_at timestamptz not null default now());
+
+create table if not exists public.flyers(
+ id uuid primary key default gen_random_uuid(),
+ title text not null, slug text not null unique, description text, campaign text,
+ start_date date not null, end_date date not null,
+ all_stores boolean not null default true, store_ids uuid[] not null default '{}',
+ cover_url text, pdf_url text, featured boolean not null default false,
+ published boolean not null default false, archived boolean not null default false,
+ deleted_at timestamptz, notes text, demo boolean default false,
+ created_by uuid references auth.users(id) on delete set null, created_by_email text,
+ created_at timestamptz not null default now(), updated_at timestamptz not null default now(),
+ published_at timestamptz, constraint flyers_dates check(end_date>=start_date));
+create index if not exists flyers_dates_idx on public.flyers(start_date,end_date);
+
+create table if not exists public.flyer_pages(
+ id uuid primary key default gen_random_uuid(),
+ flyer_id uuid not null references public.flyers(id) on delete cascade,
+ position int not null default 0, url text not null, size int default 0);
+create index if not exists flyer_pages_idx on public.flyer_pages(flyer_id,position);
+
+create table if not exists public.promotions(
+ id uuid primary key default gen_random_uuid(),
+ title text not null, description text, image_url text, start_date date, end_date date,
+ all_stores boolean not null default true, store_ids uuid[] not null default '{}',
+ cta_label text, link_url text, featured boolean not null default false, position int default 0,
+ published boolean not null default true, archived boolean not null default false,
+ demo boolean default false, created_at timestamptz not null default now(), updated_at timestamptz not null default now());
+
+create table if not exists public.analytics_events(
+ id bigint generated always as identity primary key,
+ event text not null, flyer_id uuid, promo_id uuid, store_id text,
+ utm jsonb default '{}', session text, created_at timestamptz not null default now());
+create index if not exists analytics_idx on public.analytics_events(created_at desc);
+
+-- RLS
+alter table public.profiles enable row level security;
+alter table public.settings enable row level security;
+alter table public.stores enable row level security;
+alter table public.flyers enable row level security;
+alter table public.flyer_pages enable row level security;
+alter table public.promotions enable row level security;
+alter table public.analytics_events enable row level security;
+
+drop policy if exists profiles_read on public.profiles;
+create policy profiles_read on public.profiles for select to authenticated using(id=auth.uid() or public.is_admin());
+
+drop policy if exists settings_read on public.settings;
+create policy settings_read on public.settings for select to anon,authenticated using(true);
+drop policy if exists settings_admin on public.settings;
+create policy settings_admin on public.settings for all to authenticated using(public.is_admin()) with check(public.is_admin());
+
+drop policy if exists stores_read on public.stores;
+create policy stores_read on public.stores for select to anon,authenticated using(active or public.is_admin());
+drop policy if exists stores_admin on public.stores;
+create policy stores_admin on public.stores for all to authenticated using(public.is_admin()) with check(public.is_admin());
+
+drop policy if exists flyers_read on public.flyers;
+create policy flyers_read on public.flyers for select to anon,authenticated using((published and not archived and deleted_at is null) or public.is_admin());
+drop policy if exists flyers_admin on public.flyers;
+create policy flyers_admin on public.flyers for all to authenticated using(public.is_admin()) with check(public.is_admin());
+
+drop policy if exists pages_read on public.flyer_pages;
+create policy pages_read on public.flyer_pages for select to anon,authenticated using(
+ public.is_admin() or exists(select 1 from public.flyers f where f.id=flyer_id and f.published and not f.archived and f.deleted_at is null));
+drop policy if exists pages_admin on public.flyer_pages;
+create policy pages_admin on public.flyer_pages for all to authenticated using(public.is_admin()) with check(public.is_admin());
+
+drop policy if exists promos_read on public.promotions;
+create policy promos_read on public.promotions for select to anon,authenticated using((published and not archived) or public.is_admin());
+drop policy if exists promos_admin on public.promotions;
+create policy promos_admin on public.promotions for all to authenticated using(public.is_admin()) with check(public.is_admin());
+
+drop policy if exists events_insert on public.analytics_events;
+create policy events_insert on public.analytics_events for insert to anon,authenticated with check(length(event)<40);
+drop policy if exists events_read on public.analytics_events;
+create policy events_read on public.analytics_events for select to authenticated using(public.is_admin());
+drop policy if exists events_admin_del on public.analytics_events;
+create policy events_admin_del on public.analytics_events for delete to authenticated using(public.is_admin());
+
+-- STORAGE (buckets públicos para leitura; escrita só para usuários autorizados)
+insert into storage.buckets(id,name,public) values('logos','logos',true),('flyers','flyers',true),('promotions','promotions',true),('pdfs','pdfs',true)
+ on conflict(id) do update set public=true;
+drop policy if exists enc_read on storage.objects;
+create policy enc_read on storage.objects for select to anon,authenticated using(bucket_id in('logos','flyers','promotions','pdfs'));
+drop policy if exists enc_insert on storage.objects;
+create policy enc_insert on storage.objects for insert to authenticated with check(bucket_id in('logos','flyers','promotions','pdfs') and public.is_admin());
+drop policy if exists enc_update on storage.objects;
+create policy enc_update on storage.objects for update to authenticated using(bucket_id in('logos','flyers','promotions','pdfs') and public.is_admin());
+drop policy if exists enc_delete on storage.objects;
+create policy enc_delete on storage.objects for delete to authenticated using(bucket_id in('logos','flyers','promotions','pdfs') and public.is_admin());
+`;
+
+/* ===== DEMO ===== */
+function demoPage(n,c){const items=[1,2,3,4,5,6].map(i=>`<rect x="${40+((i-1)%2)*370}" y="${240+Math.floor((i-1)/2)*270}" width="350" height="250" rx="18" fill="#fff"/><text x="${215+((i-1)%2)*370}" y="${340+Math.floor((i-1)/2)*270}" font-size="30" text-anchor="middle" fill="#333" font-family="Arial" font-weight="700">Produto ${n}.${i}</text><text x="${215+((i-1)%2)*370}" y="${420+Math.floor((i-1)/2)*270}" font-size="56" text-anchor="middle" fill="${c}" font-family="Arial" font-weight="900">R$ ${(i*2+n).toFixed(2).replace('.',',')}</text>`).join('');
+ const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1131" viewBox="0 0 800 1131"><rect width="800" height="1131" fill="#ffd54a"/><rect width="800" height="190" fill="${c}"/><text x="400" y="100" font-size="70" text-anchor="middle" fill="#fff" font-family="Arial" font-weight="900">OFERTAS DA SEMANA</text><text x="400" y="160" font-size="34" text-anchor="middle" fill="#ffe27a" font-family="Arial" font-weight="700">Página ${n} • DEMONSTRAÇÃO</text>${items}</svg>`;
+ return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg)}
+function demoPromo(t,c){const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000"><rect width="800" height="1000" fill="${c}"/><circle cx="400" cy="380" r="220" fill="#ffffff22"/><text x="400" y="400" font-size="90" text-anchor="middle" fill="#fff" font-family="Arial" font-weight="900">${t}</text><text x="400" y="560" font-size="46" text-anchor="middle" fill="#ffe27a" font-family="Arial" font-weight="700">a partir de R$ 9,90</text></svg>`;return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg)}
+async function seedDemo(){
+ const t=todayStr(),now=new Date().toISOString();
+ const stores=[{id:uid(),name:'Loja Centro',address:'Rua Principal, 100',neighborhood:'Centro',city:'Sua Cidade',phone:'(21) 3000-0001',whatsapp:'(21) 99999-0001',maps_url:'',hours:'Seg a Sáb 7h–22h · Dom 8h–20h',image_url:'',active:true,demo:true,created_at:now},{id:uid(),name:'Loja Bairro Alto',address:'Av. das Palmeiras, 500',neighborhood:'Bairro Alto',city:'Sua Cidade',phone:'(21) 3000-0002',whatsapp:'(21) 99999-0002',maps_url:'',hours:'Seg a Dom 8h–21h',image_url:'',active:true,demo:true,created_at:now}];
+ const pages=[1,2,3,4].map(n=>({id:uid(),url:demoPage(n,['#d71920','#b3121a','#e8590c','#c2185b'][n-1]),size:0}));
+ const flyers=[{id:uid(),title:'Ofertas da Semana',slug:'ofertas-da-semana-demo',description:'Encarte de demonstração com 4 páginas.',campaign:'Semana Demo',start_date:addDays(t,-1),end_date:addDays(t,5),all_stores:true,store_ids:[],cover_url:pages[0].url,pdf_url:'',featured:true,published:true,archived:false,deleted_at:null,notes:'',demo:true,created_by:null,created_by_email:'demo',created_at:now,updated_at:now,published_at:now,pages}];
+ const promos=[{id:uid(),title:'Quinta da Carne',description:'Cortes selecionados com preço especial.',image_url:demoPromo('QUINTA DA CARNE','#9b1c1c'),start_date:addDays(t,-1),end_date:addDays(t,6),all_stores:true,store_ids:[],cta_label:'',link_url:'',featured:true,position:1,published:true,archived:false,demo:true,created_at:now,updated_at:now},{id:uid(),title:'Hortifruti Fresquinho',description:'Frutas e verduras com desconto.',image_url:demoPromo('HORTIFRUTI','#2f855a'),start_date:addDays(t,-1),end_date:addDays(t,3),all_stores:true,store_ids:[],cta_label:'',link_url:'',featured:false,position:2,published:true,archived:false,demo:true,created_at:now,updated_at:now}];
+ await LocalDB.set('stores',stores);await LocalDB.set('flyers',flyers);await LocalDB.set('promotions',promos);S.stores=stores;S.flyers=flyers;S.promos=promos;localStorage.setItem('seeded','1')}
+
+/* ===== EDITOR DE ENCARTE ===== */
+const Ed={f:null,pages:[],pdf:null,cover:null,isNew:true,drag:null,
+ init(f,isNew){this.isNew=isNew;this.f=f;this.pages=(f.pages||[]).map(p=>({...p}));this.pdf=f.pdf_url?{url:f.pdf_url}:null;const c=this.pages.find(p=>p.url===f.cover_url);this.cover=c?c.id:(this.pages[0]?.id||null)},
+ blank(){const t=todayStr();return{id:uid(),title:'',slug:'',description:'',campaign:'',start_date:t,end_date:addDays(t,6),all_stores:true,store_ids:[],cover_url:'',pdf_url:'',featured:false,published:false,archived:false,deleted_at:null,notes:'',demo:false,pages:[]}},
+ async addFiles(files){const arr=[...files].sort((a,b)=>a.name.localeCompare(b.name,undefined,{numeric:true}));let ok=0;
+  for(const f of arr){try{const blob=await UploadManager.optimize(f);this.pages.push({id:uid(),url:URL.createObjectURL(blob),blob,size:blob.size,name:f.name});ok++}catch(e){toast(e.message,'err')}}
+  if(ok&&!this.cover)this.cover=this.pages[0].id;this.drawPages();if(ok)toast(`${ok} página(s) adicionada(s).`,'ok')},
+ drawPages(){const g=$('#pgGrid');if(!g)return;const tot=this.pages.reduce((a,p)=>a+(p.size||0),0);
+  g.innerHTML=this.pages.map((p,i)=>`<div class="pgi ${p.id===this.cover?'cv':''}" draggable="true" data-i="${i}"><span class="n">${i+1}</span><img src="${esc(p.url)}" alt="Página ${i+1}"><div class="tb"><button type="button" data-act="edmv" data-i="${i}" data-d="-1" aria-label="Mover para trás">◀</button><button type="button" data-act="edcv" data-i="${i}" title="Definir como capa" aria-label="Definir capa">${p.id===this.cover?'★':'☆'}</button><button type="button" data-act="eddel" data-i="${i}" aria-label="Remover">🗑</button><button type="button" data-act="edmv" data-i="${i}" data-d="1" aria-label="Mover para frente">▶</button></div><small class="${p.size>1572864?'big':''}">${p.size?fmtB(p.size):'—'}${p.size>1572864?' ⚠':''}</small></div>`).join('');
+  const t=$('#pgTot');if(t)t.innerHTML=`${this.pages.length} página(s) · total ${fmtB(tot)}${tot>30*1048576?' <b style="color:#dc2626">⚠ encarte muito pesado</b>':''}`},
+ move(i,d){const j=i+d;if(j<0||j>=this.pages.length)return;const[x]=this.pages.splice(i,1);this.pages.splice(j,0,x);this.drawPages()},
+ form(){const f=$('#edForm'),fd=new FormData(f),g=k=>(fd.get(k)||'').toString().trim();const o={...this.f};
+  Object.assign(o,{title:g('title'),slug:slugify(g('slug')||g('title')),description:g('description'),campaign:g('campaign'),start_date:g('start_date'),end_date:g('end_date'),all_stores:fd.get('all_stores')==='on',store_ids:fd.getAll('store_ids'),featured:fd.get('featured')==='on',notes:g('notes'),published:g('pub')==='1'});return o},
+ validate(o,publish){const e=[];if(!o.title)e.push('Informe o título.');if(!o.start_date||!o.end_date)e.push('Informe as datas inicial e final.');else if(o.end_date<o.start_date)e.push('A data final não pode ser anterior à inicial.');if(!o.all_stores&&!o.store_ids.length)e.push('Selecione ao menos uma unidade ou "Todas as lojas".');if(publish&&!this.pages.length)e.push('Adicione ao menos uma página para publicar.');return e},
+ uniqueSlug(o){let s=o.slug||'encarte',n=s,i=2;while(S.flyers.some(f=>f.slug===n&&f.id!==o.id))n=`${s}-${i++}`;return n},
+ async save(publish){
+  const o=this.form();if(publish!==undefined)o.published=publish;const err=this.validate(o,o.published);if(err.length){toast(err[0],'err');return}
+  o.slug=this.uniqueSlug(o);
+  Modal.open('<p id="upMsg">Preparando…</p><div class="prog"><i id="upBar"></i></div>',{title:'Salvando encarte'});
+  try{
+   const jobs=this.pages.filter(p=>p.blob).length+(this.pdf?.blob?1:0);let done=0;const step=m=>{done++;$('#upMsg').textContent=m;$('#upBar').style.width=Math.round(done/Math.max(jobs,1)*100)+'%'};
+   const pages=[];let idx=0;
+   for(const p of this.pages){let url=p.url,size=p.size;if(p.blob){const ext=p.blob.type==='image/webp'?'webp':p.blob.type==='image/png'?'png':'jpg';url=await Data.upload('flyers',p.blob,`${o.id}/${pad(idx)}-${uid().slice(0,8)}.${ext}`);step(`Enviando imagem ${done+1} de ${jobs}…`)}pages.push({id:p.id,url,size});idx++}
+   let pdf_url=this.pdf?.url||'';if(this.pdf?.blob){pdf_url=await Data.upload('pdfs',this.pdf.blob,`${o.id}/${slugify(o.title)||'encarte'}-${uid().slice(0,6)}.pdf`);step('PDF enviado.')}
+   if(!this.pdf)pdf_url='';
+   const cv=this.pages.findIndex(p=>p.id===this.cover);o.pages=pages;o.pdf_url=pdf_url;o.cover_url=pages[cv>=0?cv:0]?.url||'';
+   const now=new Date().toISOString();if(this.isNew||!o.created_at){o.created_at=now;o.created_by=S.user?.id||null;o.created_by_email=S.user?.email||'local'}
+   if(o.published&&!o.published_at)o.published_at=now;if(!o.published)o.published_at=null;
+   await Data.save('flyers',o);Modal.close();toast(o.published?'Encarte publicado!':'Rascunho salvo.','ok');Admin.go('flyers');
+  }catch(e){Modal.close();Admin.err(e,'Falha ao salvar')}
+ },
+ preview(){const o=this.form();o.pages=this.pages.map(p=>({url:p.url}));o.cover_url='';o.pdf_url=this.pdf?.url||'';o.published=true;applyBrand();Pub.mainFlyer=null;Modal.open(`<div class="phone"><div class="hero" style="padding:18px 10px 22px"><h1 style="font-size:24px">${esc(S.settings.hero)}</h1><span class="period">${esc(period(o))}</span></div><div style="padding:10px">${Pub.flyerHTML(o).replace(/data-act="(share|view|lb|pdfdl|carprev|carnext)"/g,'data-x="$1"')}</div></div>`,{title:'Visualizar como cliente',wide:true})}
+};
+
+/* ===== ADMIN ===== */
+const TABS=[['dashboard','📊','Painel'],['flyers','🗞️','Encartes'],['promos','🔥','Promoções'],['stores','📍','Lojas'],['identity','🎨','Identidade'],['settings','⚙️','Configurações'],['links','🔗','Links e QR'],['analytics','📈','Analytics'],['cloud','☁️','Nuvem'],['backup','💾','Backup']];
+const Admin={flt:{q:'',status:'',store:'',from:'',to:''},linkSel:{t:'home',id:''},
+ go(t,push=true){S.tab=t;if(push&&location.hash!=='#admin/'+t)history.pushState(null,'','#admin/'+t);this.render()},
+ err(e,pre){const m=(e&&e.message)||String(e);let msg=m;if(/JWT|expired|401/i.test(m))msg='Sessão expirada. Entre novamente.';else if(/Failed to fetch|NetworkError/i.test(m))msg='Sem conexão com o Supabase. Verifique a internet e a configuração.';else if(/row-level security|permission|403/i.test(m))msg='Sem permissão. Verifique se o SQL foi executado e se o usuário está autorizado.';else if(/bucket/i.test(m))msg='Bucket de armazenamento não encontrado. Execute o SQL de configuração.';toast(`${pre?pre+': ':''}${msg}`,'err');console.error(e)},
+ login(){return `<form class="login" data-form="login"><h1>Painel da agência</h1><p style="color:#666;margin-bottom:16px">Entre com seu e-mail e senha.</p><div class="f"><label class="full">E-mail<input name="email" type="email" required autocomplete="username" autofocus></label><label class="full">Senha<input name="pw" type="password" required autocomplete="current-password"></label></div><button class="btn" style="width:100%;margin-top:16px">Entrar</button><p style="margin-top:14px;font-size:13px;display:flex;justify-content:space-between"><a href="#" data-act="reset">Esqueci a senha</a><a href="${baseUrl()}">← Voltar ao site</a></p></form>`},
+ render(){
+  if(!isAdminRoute())return;applyBrand();document.title='Painel | '+S.settings.name;
+  if(S.cloudErr&&S.cloud===false&&SB.cfg()){}
+  if(S.cloud&&!S.user){$('#app').innerHTML=this.login();return}
+  if(S.cloud&&S.isAdmin===false){$('#app').innerHTML=`<div class="login"><h1>Acesso não autorizado</h1><p style="margin:10px 0">Seu usuário (${esc(S.user.email)}) não está na tabela <b>profiles</b>. Rode o SQL de configuração ou peça a um administrador.</p><button class="btn" data-act="logout">Sair</button></div>`;return}
+  const t=S.tab,fn=this['v_'+t]||this.v_dashboard;
+  $('#app').innerHTML=`<div class="adm"><aside><h2>${Pub.logo()} <span>Painel</span></h2>${TABS.map(x=>`<button class="${t===x[0]||(t==='flyer-edit'&&x[0]==='flyers')?'on':''}" data-act="tab" data-t="${x[0]}">${x[1]} ${x[2]}</button>`).join('')}<button data-act="site">🌐 Ver site</button><button data-act="logout">🚪 Sair</button></aside><main><div class="bar"><span class="modebadge ${S.cloud?'c':'l'}">${S.cloud?'☁️ Sincronizado com a Nuvem':'💻 Modo Local'}</span>${S.loadErr?`<span class="modebadge" style="background:#fee2e2;color:#991b1b">${esc(S.loadErr)}</span>`:''}</div>${fn.call(this)}</main></div>`;
+  if(t==='flyer-edit')Ed.drawPages();if(t==='links')this.drawQR();
+  if(!localStorage.getItem('onb_done')&&t==='dashboard'&&!this._onb){this._onb=1;setTimeout(()=>this.onboarding(),400)}
+ },
+ onboarding(){Modal.open(`<p style="margin-bottom:12px;color:#555">Siga os passos para deixar tudo pronto (pode pular e voltar depois).</p>${[['settings','1','Configurar supermercado','Nome, WhatsApp, redes sociais'],['identity','2','Configurar identidade','Logo, cores e tipografia'],['stores','3','Configurar unidade','Cadastre as lojas'],['cloud','4','Configurar Supabase','Dados compartilhados na nuvem'],['flyer-edit','5','Criar primeiro encarte','Suba as artes e publique']].map(x=>`<button class="opt" data-act="onbgo" data-t="${x[0]}"><span style="font-size:22px;font-weight:800">${x[1]}</span><span><b>${x[2]}</b><small>${x[3]}</small></span></button>`).join('')}<button class="btn sec" data-act="onbskip" style="width:100%">Pular</button>`,{title:'Primeiro acesso'})},
+ /* dashboard */
+ v_dashboard(){const c=s=>S.flyers.filter(f=>flyerStatus(f)===s).length,ev=e=>S.events.filter(x=>x.event===e).length;
+  const last=[...S.flyers].filter(f=>!f.deleted_at).sort((a,b)=>b.start_date>a.start_date?1:-1)[0];
+  return `<div class="bar"><h1>Painel</h1><button class="btn" data-act="newflyer">+ NOVO ENCARTE</button>${last?`<button class="btn sec" data-act="dupweek" data-id="${last.id}">⏩ Duplicar semana anterior</button>`:''}</div>
+  <div class="stats">${[['Encarte ativo',c('ativo')],['Agendados',c('agendado')],['Encerrados',c('encerrado')],['Promoções ativas',S.promos.filter(p=>flyerStatus(p)==='ativo').length],['Visualizações',ev('page_view')],['Cliques WhatsApp',ev('whatsapp_click')],['Compartilhamentos',ev('share')],['Downloads',ev('pdf_download')]].map(x=>`<div class="stat"><b>${x[1]}</b><span>${x[0]}</span></div>`).join('')}</div>
+  <div class="pnl"><h3>Encartes recentes</h3><div class="rows">${this.flyerRows(S.flyers.filter(f=>!f.deleted_at).sort((a,b)=>b.start_date>a.start_date?1:-1).slice(0,5))||'<p style="color:#777">Nenhum encarte ainda. Clique em “+ NOVO ENCARTE”.</p>'}</div></div>
+  <div class="pnl"><h3>Fluxo semanal</h3><p style="color:#555">Novo encarte → título, datas e unidade → arraste as imagens → visualizar como cliente → publicar. O sistema ativa e encerra automaticamente pelas datas.</p></div>`},
+ flyerRows(list){return list.map(f=>`<div class="r"><img class="th" src="${esc(f.cover_url||f.pages?.[0]?.url||'')}" alt="" loading="lazy"><div class="inf"><b>${esc(f.title)}</b><small>${esc(period(f)||'')} · ${f.all_stores?'Todas as lojas':f.store_ids.map(id=>S.stores.find(s=>s.id===id)?.name).filter(Boolean).join(', ')||'—'}</small><br>${badge(f)} <small>${timeLabel(f)}</small>${f.featured?' <span class="badge hot">Destaque</span>':''}<br><small>Atualizado ${fmtDY((f.updated_at||'').slice(0,10))}${f.created_by_email?' · '+esc(f.created_by_email):''}${f.published_at?' · Publicado '+fmtDY(f.published_at.slice(0,10)):''}</small></div><div class="acts"><button class="btn sm" data-act="editflyer" data-id="${f.id}">Editar</button><button class="btn sm sec" data-act="dupflyer" data-id="${f.id}">Duplicar</button><button class="btn sm sec" data-act="viewflyer" data-id="${f.id}">Ver</button><button class="btn sm sec" data-act="togpub" data-id="${f.id}">${f.published?'Despublicar':'Publicar'}</button><button class="btn sm sec" data-act="qrflyer" data-id="${f.id}">QR</button><button class="btn sm sec" data-act="archflyer" data-id="${f.id}">${f.archived?'Restaurar':'Arquivar'}</button><button class="btn sm danger" data-act="delflyer" data-id="${f.id}">Excluir</button></div></div>`).join('')},
+ filtered(){const q=this.flt,t=todayStr();return S.flyers.filter(f=>{const st=flyerStatus(f);if(q.status?st!==q.status:st==='arquivado'&&false)return false;if(q.status&&st!==q.status)return false;if(q.store&&!(f.all_stores||f.store_ids.includes(q.store)))return false;if(q.from&&f.end_date<q.from)return false;if(q.to&&f.start_date>q.to)return false;
+   if(q.q){const h=[f.title,f.campaign,f.slug,f.start_date,f.end_date,fmtD(f.start_date),fmtD(f.end_date),...(f.store_ids||[]).map(id=>S.stores.find(s=>s.id===id)?.name||'')].join(' ').toLowerCase();if(!h.includes(q.q.toLowerCase()))return false}return!f.deleted_at}).sort((a,b)=>b.start_date>a.start_date?1:-1)},
+ v_flyers(){const q=this.flt;return `<div class="bar"><h1>Encartes</h1><button class="btn" data-act="newflyer">+ NOVO ENCARTE</button></div><div class="pnl"><div class="f"><label>Buscar<input data-flt="q" value="${esc(q.q)}" placeholder="Campanha, data ou loja"></label><label>Status<select data-flt="status"><option value="">Todos</option>${['ativo','agendado','rascunho','encerrado','arquivado'].map(s=>`<option value="${s}" ${q.status===s?'selected':''}>${statusLabel[s]}</option>`).join('')}</select></label><label>Unidade<select data-flt="store"><option value="">Todas</option>${S.stores.map(s=>`<option value="${s.id}" ${q.store===s.id?'selected':''}>${esc(s.name)}</option>`).join('')}</select></label><label>De<input type="date" data-flt="from" value="${q.from}"></label><label>Até<input type="date" data-flt="to" value="${q.to}"></label></div></div><div class="pnl rows" id="flyerList">${this.flyerRows(this.filtered())||'<p style="color:#777;padding:10px">Nenhum encarte encontrado.</p>'}</div>`},
+ /* editor */
+ v_flyer_edit(){const f=Ed.f,pubv=f.published?'1':'0';
+  return `<div class="bar"><h1>${Ed.isNew?'Novo encarte':'Editar encarte'}</h1><button class="btn sec" data-act="tab" data-t="flyers">← Voltar</button></div>
+  <form id="edForm" data-form="noop" class="pnl"><div class="f"><label class="full">Título *<input name="title" value="${esc(f.title)}" placeholder="Ofertas 14 a 20 de outubro" required></label><label>Slug (URL)<input name="slug" value="${esc(f.slug)}" placeholder="gerado automaticamente"></label><label>Campanha<input name="campaign" value="${esc(f.campaign)}" placeholder="Ex.: Semana do Churrasco"></label><label>Data inicial *<input type="date" name="start_date" value="${f.start_date}" required></label><label>Data final *<input type="date" name="end_date" value="${f.end_date}" required></label><label class="full">Descrição<textarea name="description">${esc(f.description)}</textarea></label>
+  <label class="ck full"><input type="checkbox" name="all_stores" ${f.all_stores?'checked':''} data-change="allst"> Todas as lojas</label>
+  <div class="full" id="stBox" style="display:${f.all_stores?'none':'flex'};gap:12px;flex-wrap:wrap">${S.stores.map(s=>`<label class="ck"><input type="checkbox" name="store_ids" value="${s.id}" ${f.store_ids.includes(s.id)?'checked':''}> ${esc(s.name)}</label>`).join('')||'<small>Cadastre lojas primeiro.</small>'}</div>
+  <label>Publicação<select name="pub"><option value="0" ${pubv==='0'?'selected':''}>Rascunho (não publicado)</option><option value="1" ${pubv==='1'?'selected':''}>Publicado (ativa/encerra pelas datas)</option></select></label><label class="ck"><input type="checkbox" name="featured" ${f.featured?'checked':''}> Destaque na home</label><label class="full">Observações internas<textarea name="notes">${esc(f.notes)}</textarea></label></div>
+  <h3 style="margin:18px 0 8px">Páginas do encarte</h3><label class="drop" id="drop">📤 Clique ou arraste as imagens aqui (JPG, PNG, WebP)<input type="file" id="pgInput" accept="image/jpeg,image/png,image/webp" multiple hidden></label><p id="pgTot" style="margin-top:8px;font-size:13px;color:#555"></p><div class="pgrid" id="pgGrid"></div><p style="font-size:12px;color:#777;margin-top:6px">Arraste para reordenar (ou use ◀ ▶). ☆ define a capa; sem seleção, a primeira página é a capa.</p>
+  <h3 style="margin:18px 0 8px">PDF (opcional)</h3><div class="row"><input type="file" id="pdfInput" accept="application/pdf"><span id="pdfName" style="font-size:13px">${Ed.pdf?'PDF anexado'+(Ed.pdf.blob?' ('+fmtB(Ed.pdf.blob.size)+')':''):''}</span>${Ed.pdf?'<button type="button" class="btn sm sec" data-act="pdfrm">Remover PDF</button>':''}</div>
+  <div class="row" style="margin-top:22px"><button type="button" class="btn sec" data-act="edpreview">👁 Visualizar como cliente</button><button type="button" class="btn sec" data-act="edsave" data-p="0">Salvar rascunho</button><button type="button" class="btn ok" data-act="edsave" data-p="1">✅ Publicar</button></div></form>`},
+ /* promos */
+ v_promos(){const l=[...S.promos].sort((a,b)=>(b.featured-a.featured)||((a.position||0)-(b.position||0)));return `<div class="bar"><h1>Promoções</h1><button class="btn" data-act="editpromo" data-id="">+ Nova promoção</button></div><div class="pnl rows">${l.map(p=>`<div class="r"><img class="th" src="${esc(p.image_url||'')}" alt="" loading="lazy"><div class="inf"><b>${esc(p.title)}</b><small>${p.start_date?fmtD(p.start_date):'—'} a ${p.end_date?fmtD(p.end_date):'—'}</small><br>${badge(p)} <small>${timeLabel(p)}</small>${p.featured?' <span class="badge hot">Destaque</span>':''}</div><div class="acts"><button class="btn sm" data-act="editpromo" data-id="${p.id}">Editar</button><button class="btn sm sec" data-act="duppromo" data-id="${p.id}">Duplicar</button><button class="btn sm sec" data-act="featpromo" data-id="${p.id}">${p.featured?'Tirar destaque':'Destacar'}</button><button class="btn sm sec" data-act="endpromo" data-id="${p.id}">Encerrar</button><button class="btn sm danger" data-act="delpromo" data-id="${p.id}">Excluir</button></div></div>`).join('')||'<p style="color:#777">Nenhuma promoção cadastrada.</p>'}</div>`},
+ promoForm(p){return `<form data-form="promo" class="f"><input type="hidden" name="id" value="${p.id}"><label class="full">Título *<input name="title" value="${esc(p.title)}" required></label><label class="full">Descrição<textarea name="description">${esc(p.description)}</textarea></label><label class="full">Imagem<input type="file" accept="image/jpeg,image/png,image/webp" data-change="upimg" data-field="image_url" data-bucket="promotions" data-max="1400"><input type="hidden" name="image_url" value="${esc(p.image_url)}"><img id="pv_image_url" src="${esc(p.image_url||'')}" alt="" style="max-height:120px;margin-top:6px;border-radius:8px;${p.image_url?'':'display:none'}"></label><label>Data inicial<input type="date" name="start_date" value="${p.start_date||''}"></label><label>Data final<input type="date" name="end_date" value="${p.end_date||''}"></label><label>Texto do botão (CTA)<input name="cta_label" value="${esc(p.cta_label)}" placeholder="Saiba mais"></label><label>Link<input name="link_url" value="${esc(p.link_url)}" placeholder="https://"></label><label>Ordem<input type="number" name="position" value="${p.position||0}"></label><label class="ck"><input type="checkbox" name="featured" ${p.featured?'checked':''}> Destaque</label><label class="ck"><input type="checkbox" name="published" ${p.published?'checked':''}> Publicada</label><label class="ck full"><input type="checkbox" name="all_stores" ${p.all_stores?'checked':''}> Todas as lojas</label><div class="full" style="display:flex;gap:12px;flex-wrap:wrap">${S.stores.map(s=>`<label class="ck"><input type="checkbox" name="store_ids" value="${s.id}" ${(p.store_ids||[]).includes(s.id)?'checked':''}> ${esc(s.name)}</label>`).join('')}</div><div class="full"><button class="btn">Salvar promoção</button></div></form>`},
+ /* stores */
+ v_stores(){return `<div class="bar"><h1>Lojas</h1><button class="btn" data-act="editstore" data-id="">+ Nova loja</button></div><div class="pnl rows">${S.stores.map(s=>`<div class="r"><div class="inf"><b>${esc(s.name)} ${s.active===false?'<span class="badge">Inativa</span>':''}</b><small>${esc([s.address,s.neighborhood,s.city].filter(Boolean).join(' · '))}</small></div><div class="acts"><button class="btn sm" data-act="editstore" data-id="${s.id}">Editar</button><button class="btn sm sec" data-act="qrstore" data-id="${s.id}">QR</button><button class="btn sm danger" data-act="delstore" data-id="${s.id}">Excluir</button></div></div>`).join('')||'<p style="color:#777">Nenhuma loja cadastrada.</p>'}</div>`},
+ storeForm(s){return `<form data-form="store" class="f"><input type="hidden" name="id" value="${s.id}"><label class="full">Nome *<input name="name" value="${esc(s.name)}" required></label><label class="full">Endereço<input name="address" value="${esc(s.address)}"></label><label>Bairro<input name="neighborhood" value="${esc(s.neighborhood)}"></label><label>Cidade<input name="city" value="${esc(s.city)}"></label><label>Telefone<input name="phone" value="${esc(s.phone)}"></label><label>WhatsApp<input name="whatsapp" value="${esc(s.whatsapp)}" placeholder="(21) 99999-9999"></label><label class="full">Link do Google Maps<input name="maps_url" value="${esc(s.maps_url)}" placeholder="vazio = busca pelo endereço"></label><label class="full">Horário / avisos / feriados<textarea name="hours">${esc(s.hours)}</textarea></label><label class="full">Imagem (opcional)<input type="file" accept="image/jpeg,image/png,image/webp" data-change="upimg" data-field="image_url" data-bucket="logos" data-max="1000"><input type="hidden" name="image_url" value="${esc(s.image_url)}"><img id="pv_image_url" src="${esc(s.image_url||'')}" alt="" style="max-height:100px;margin-top:6px;border-radius:8px;${s.image_url?'':'display:none'}"></label><label class="ck"><input type="checkbox" name="active" ${s.active!==false?'checked':''}> Ativa</label><div class="full"><button class="btn">Salvar loja</button></div></form>`},
+ /* identidade */
+ v_identity(){const s=S.settings;const up=(f,l,b,m)=>`<label>${l}<input type="file" accept="image/jpeg,image/png,image/webp" data-change="upimg" data-field="${f}" data-bucket="logos" data-max="${m}"><input type="hidden" name="${f}" value="${esc(s[f])}"><img id="pv_${f}" src="${esc(s[f]||'')}" alt="" style="max-height:70px;margin-top:6px;border-radius:8px;background:#eee;${s[f]?'':'display:none'}"></label>`;
+  return `<div class="bar"><h1>Identidade</h1></div><form class="pnl f" data-form="settings"><label class="full">Nome do supermercado<input name="name" value="${esc(s.name)}"></label><label class="full">Slogan<input name="slogan" value="${esc(s.slogan)}"></label><label class="full">Título principal (home)<input name="hero" value="${esc(s.hero)}"></label><label class="full">Subtítulo<input name="heroSub" value="${esc(s.heroSub)}"></label>${up('logo','Logo','logos',600)}${up('favicon','Favicon','logos',128)}<label>Cor principal<input type="color" name="primary" value="${s.primary}"></label><label>Cor secundária<input type="color" name="secondary" value="${s.secondary}"></label><label>Cor de fundo<input type="color" name="bg" value="${s.bg}"></label><label>Cor dos botões<input type="color" name="btn" value="${s.btn}"></label><label>Tipografia<select name="font">${FONTS.map(x=>`<option ${s.font===x?'selected':''}>${x}</option>`).join('')}</select></label><div class="full"><button class="btn">Salvar identidade</button></div></form>`},
+ v_settings(){const s=S.settings,i=(k,l,ph='')=>`<label>${l}<input name="${k}" value="${esc(s[k])}" placeholder="${ph}"></label>`;
+  return `<div class="bar"><h1>Configurações</h1></div><form class="pnl f" data-form="settings">${i('whatsapp','WhatsApp geral','(21) 99999-9999')}${i('site','Site','https://')}${i('instagram','Instagram','https://instagram.com/...')}${i('facebook','Facebook','https://facebook.com/...')}${i('tiktok','TikTok','https://tiktok.com/@...')}<label class="full">Mensagem inicial do WhatsApp<input name="waMessage" value="${esc(s.waMessage)}"></label><label class="full">Aviso de validade<textarea name="legal">${esc(s.legal)}</textarea></label><label class="full">Política de ofertas<textarea name="policy">${esc(s.policy)}</textarea></label><label class="full">Rodapé<textarea name="footer">${esc(s.footer)}</textarea></label><label class="ck full"><input type="checkbox" name="historyPublic" ${s.historyPublic?'checked':''}> Exibir histórico (encartes anteriores) publicamente</label><div class="full"><button class="btn">Salvar configurações</button></div></form>`},
+ /* links */
+ linkBase(){const{t,id}=this.linkSel;if(t==='flyer'){const f=S.flyers.find(x=>x.id===id);if(f)return `${baseUrl()}?encarte=${encodeURIComponent(f.slug)}`}if(t==='store'&&id)return `${baseUrl()}?loja=${id}`;return baseUrl()},
+ linkSet(){const b=this.linkBase(),j=b.includes('?')?'&':'?';return[['Instagram (bio)','utm_source=instagram&utm_medium=bio'],['Instagram (Stories)','utm_source=instagram&utm_medium=stories'],['WhatsApp','utm_source=whatsapp'],['Tráfego pago','utm_source=instagram&utm_medium=paid'],['QR Code (offline)','utm_source=offline&utm_medium=qrcode']].map(x=>[x[0],b+j+x[1]])},
+ v_links(){const fl=S.flyers.filter(f=>!f.deleted_at),st=this.linkSel;return `<div class="bar"><h1>Links rastreáveis e QR Code</h1></div><div class="pnl"><div class="f"><label>Destino<select data-link="t"><option value="home" ${st.t==='home'?'selected':''}>Página principal</option><option value="flyer" ${st.t==='flyer'?'selected':''}>Encarte específico</option><option value="store" ${st.t==='store'?'selected':''}>Unidade</option></select></label>${st.t==='flyer'?`<label>Encarte<select data-link="id"><option value="">—</option>${fl.map(f=>`<option value="${f.id}" ${st.id===f.id?'selected':''}>${esc(f.title)}</option>`).join('')}</select></label>`:''}${st.t==='store'?`<label>Loja<select data-link="id"><option value="">—</option>${S.stores.map(s=>`<option value="${s.id}" ${st.id===s.id?'selected':''}>${esc(s.name)}</option>`).join('')}</select></label>`:''}</div></div><div class="pnl rows"><h3>Links prontos</h3>${[['Sem UTM',this.linkBase()],...this.linkSet()].map(x=>`<div class="r"><div class="inf"><b>${x[0]}</b><small style="word-break:break-all">${esc(x[1])}</small></div><button class="btn sm sec" data-act="copy" data-v="${esc(x[1])}">Copiar</button></div>`).join('')}</div><div class="pnl"><h3>QR Code</h3><div class="row"><canvas id="qrcv" style="width:220px;height:220px;border:1px solid #ddd;border-radius:10px"></canvas><div><p style="font-size:13px;color:#555;margin-bottom:8px">QR do link “QR Code (offline)”.</p><button class="btn" data-act="qrdl">⬇️ BAIXAR QR CODE</button></div></div></div>`},
+ async drawQR(){const cv=$('#qrcv');if(!cv)return;try{this.qrUrl=this.linkSet()[4][1];await QRManager.draw(cv,this.qrUrl)}catch(e){toast('Não foi possível gerar o QR Code (biblioteca externa).','err')}},
+ async showQR(url,name){Modal.open('<canvas id="qrm" style="width:260px;height:260px;margin:auto;display:block;border:1px solid #ddd"></canvas><div style="text-align:center;margin-top:12px"><button class="btn" data-act="qrmdl">⬇️ BAIXAR QR CODE</button></div>',{title:'QR Code'});window._qr={url,name};try{await QRManager.draw($('#qrm'),url)}catch{toast('Falha ao gerar o QR Code.','err')}},
+ /* analytics */
+ v_analytics(){const m={};const key=id=>{const f=S.flyers.find(x=>x.id===id);return f?(f.campaign||f.title):'(página principal)'};S.events.forEach(e=>{const k=key(e.flyer_id);m[k]=m[k]||{v:0,w:0,s:0,d:0,mp:0};if(e.event==='flyer_view'||e.event==='page_view'&&!e.flyer_id)m[k].v++;if(e.event==='whatsapp_click')m[k].w++;if(e.event==='share')m[k].s++;if(e.event==='pdf_download')m[k].d++;if(e.event==='maps_click')m[k].mp++});
+  const src={};S.events.filter(e=>e.event==='page_view').forEach(e=>{const k=(e.utm?.utm_source||'direto')+(e.utm?.utm_medium?' / '+e.utm.utm_medium:'');src[k]=(src[k]||0)+1});
+  const stc={};S.events.filter(e=>e.event==='store_select').forEach(e=>{const k=S.stores.find(s=>s.id===e.store_id)?.name||'—';stc[k]=(stc[k]||0)+1});
+  return `<div class="bar"><h1>Analytics</h1></div><div class="pnl"><h3>Por campanha</h3><div style="overflow:auto"><table class="t"><tr><th>Campanha</th><th class="n">Visualizações</th><th class="n">WhatsApp</th><th class="n">Compartilhamentos</th><th class="n">Downloads</th><th class="n">Maps</th></tr>${Object.entries(m).map(([k,v])=>`<tr><td>${esc(k)}</td><td class="n">${v.v}</td><td class="n">${v.w}</td><td class="n">${v.s}</td><td class="n">${v.d}</td><td class="n">${v.mp}</td></tr>`).join('')||'<tr><td colspan="6" style="color:#777">Sem dados ainda.</td></tr>'}</table></div></div><div class="pnl"><h3>Origem dos acessos (UTM)</h3><table class="t">${Object.entries(src).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<tr><td>${esc(k)}</td><td class="n">${v}</td></tr>`).join('')||'<tr><td style="color:#777">Sem dados.</td></tr>'}</table></div><div class="pnl"><h3>Seleção de unidade</h3><table class="t">${Object.entries(stc).map(([k,v])=>`<tr><td>${esc(k)}</td><td class="n">${v}</td></tr>`).join('')||'<tr><td style="color:#777">Sem dados.</td></tr>'}</table></div>`},
+ /* cloud */
+ v_cloud(){const c=SB.cfg()||{};return `<div class="bar"><h1>Configuração da nuvem</h1></div><form class="pnl f" data-form="cloud"><label class="full">Supabase URL<input name="url" value="${esc(c.url||'')}" placeholder="https://xxxx.supabase.co"></label><label class="full">Supabase Anon Key<input name="key" value="${esc(c.key||'')}" placeholder="eyJ..."></label><div class="full row"><button class="btn">Salvar configuração</button><button type="button" class="btn sec" data-act="cloudtest">Testar conexão</button><button type="button" class="btn danger" data-act="cloudrm">Remover configuração</button></div></form>${S.cloudErr?`<div class="banner warn">${esc(S.cloudErr)}</div>`:''}<div class="pnl"><h3>Configuração inicial do banco</h3><ol style="margin:0 0 12px 18px;font-size:14px;color:#444"><li>Crie um projeto no Supabase.</li><li>Copie o SQL abaixo e execute em <b>SQL Editor</b> (uma única vez).</li><li>Em <b>Authentication → Users</b>, crie os usuários da agência e desative novos cadastros públicos.</li><li>Cole URL e Anon Key acima e salve.</li></ol><button class="btn" data-act="copysql" style="margin-bottom:10px">COPIAR SQL</button><pre class="sql">${esc(SQL)}</pre></div>`},
+ v_backup(){return `<div class="bar"><h1>Backup e dados</h1></div><div class="pnl"><div class="row"><button class="btn" data-act="bkexp">EXPORTAR BACKUP</button><label class="btn sec" style="cursor:pointer">IMPORTAR BACKUP<input type="file" id="bkimp" accept="application/json" hidden></label><button class="btn danger" data-act="rmdemo">REMOVER DADOS DE DEMONSTRAÇÃO</button><button class="btn sec" data-act="onbopen">Rever primeiro acesso</button></div><p style="margin-top:12px;font-size:13px;color:#555">O backup inclui configurações, lojas, encartes (com páginas) e promoções em JSON. No modo local, imagens ficam incorporadas ao arquivo.</p></div>`}
+};
+
+/* ===== BACKUP ===== */
+const BackupManager={export(){download(`backup-encartes-${todayStr()}.json`,new Blob([JSON.stringify({v:1,at:new Date().toISOString(),settings:S.settings,stores:S.stores,flyers:S.flyers,promotions:S.promos})],{type:'application/json'}))},
+ async import(file){let d;try{d=JSON.parse(await file.text());if(!d||typeof d!=='object'||!Array.isArray(d.flyers))throw 0}catch{toast('Arquivo de backup inválido.','err');return}
+  if(!confirm('Importar este backup? Registros com o mesmo ID serão substituídos.'))return;
+  try{if(d.settings)await Data.saveSettings(d.settings);for(const s of d.stores||[])await Data.save('stores',s);for(const f of d.flyers||[])await Data.save('flyers',{...f,pages:f.pages||[]});for(const p of d.promotions||[])await Data.save('promotions',p);toast('Backup importado!','ok');Admin.render()}catch(e){Admin.err(e,'Falha ao importar')}}};
+
+/* ===== APP / ROUTER ===== */
+const App={
+ async load(){try{await Data.loadAll();S.loadErr='';if(isAdminRoute())await Data.loadEvents()}catch(e){console.error(e);const c=(()=>{try{return JSON.parse(localStorage.getItem('cache_pub')||'null')}catch{return null}})();
+   if(c){S.settings={...DEF,...c.s};S.stores=c.st;S.flyers=c.fl;S.promos=c.pr;S.loadErr='Estamos com instabilidade na conexão. Exibindo as últimas ofertas salvas.'}else S.loadErr='Não foi possível carregar as ofertas agora. Tente novamente em instantes.'}},
+ render(){if(isAdminRoute()){const t=location.hash.split('/')[1];if(t&&(TABS.some(x=>x[0]===t)||t==='flyer-edit'))S.tab=t;if(S.tab==='flyer-edit'&&!Ed.f)S.tab='flyers';Admin.render()}else Pub.render()},
+ async boot(){
+  try{S.cloud=await SB.init()}catch(e){S.cloud=false;S.cloudErr='Não foi possível carregar o Supabase: '+e.message}
+  if(S.cloud)await AuthManager.start().catch(()=>{});
+  if(!S.cloud&&!localStorage.getItem('seeded')&&(await LocalDB.get('flyers',[])).length===0&&!SB.cfg())await seedDemo();
+  await this.load();
+  const lj=new URLSearchParams(location.search).get('loja');if(lj&&S.stores.some(s=>s.id===lj)){S.storeId=lj;localStorage.setItem('store_id',lj)}
+  if(S.storeId&&!S.stores.some(s=>s.id===S.storeId))S.storeId='';
+  AnalyticsManager.utm();this.render();
+  addEventListener('hashchange',()=>{if(isAdminRoute()&&S.cloud&&S.user)Data.loadEvents().then(()=>this.render());else this.render()});
+  addEventListener('popstate',()=>this.render());
+ }
+};
+
+/* ===== ACTIONS ===== */
+const A={
+ nav(el,e){e.preventDefault();history.pushState(null,'',el.getAttribute('href'));Pub.render();scrollTo({top:0})},
+ view(el){Pub.view=el.dataset.v;Pub.refreshFlyer()},
+ lb(el){const f=Pub.mainFlyer;if(f)LB.open(f.pages.map(p=>p.url),+el.dataset.i)},
+ lbp(el){const p=S.promos.find(x=>x.id===el.dataset.id);if(p)LB.open([p.image_url],0)},
+ lbclose(){LB.close()},lbzoom(){LB.z=!LB.z;LB.draw()},lbprev(){LB.go(-1)},lbnext(){LB.go(1)},
+ carprev(){$('#car').scrollBy({left:-$('#car').clientWidth,behavior:'smooth'})},carnext(){$('#car').scrollBy({left:$('#car').clientWidth,behavior:'smooth'})},
+ share(el){ShareManager.open(S.flyers.find(f=>f.id===el.dataset.id)||Pub.mainFlyer)},
+ shwa(){ShareManager.wa()},shnat(){ShareManager.native()},shcopy(){const{u,f}=window._sh;AnalyticsManager.track('share',{flyer:f?.id});ShareManager.copy(u);Modal.close()},
+ pdfdl(el){AnalyticsManager.track('pdf_download',{flyer:el.dataset.id})},
+ wa(){AnalyticsManager.track('whatsapp_click',{flyer:Pub.mainFlyer?.id})},
+ maps(el){AnalyticsManager.track('maps_click')},
+ promoclick(el){AnalyticsManager.track('promo_click',{promo:el.dataset.id})},
+ stores(){Pub.stores()},pickstore(el){Pub.pick(el.dataset.id)},
+ mclose(){Modal.close()},mbg(el,e){if(e.target===el)Modal.close()},
+ copy(el){ShareManager.copy(el.dataset.v)},copysql(){ShareManager.copy(SQL)},
+ /* admin */
+ tab(el){Admin.go(el.dataset.t)},site(){location.href=baseUrl()},logout(){if(S.cloud)AuthManager.logout();else location.href=baseUrl()},
+ async reset(el,e){e.preventDefault();const m=prompt('Informe seu e-mail para recuperar a senha:');if(!m)return;try{await AuthManager.reset(m);toast('Link de recuperação enviado.','ok')}catch(x){Admin.err(x)}},
+ onbgo(el){localStorage.setItem('onb_done','1');Modal.close();if(el.dataset.t==='flyer-edit')A.newflyer();else Admin.go(el.dataset.t)},onbskip(){localStorage.setItem('onb_done','1');Modal.close()},onbopen(){Admin.onboarding()},
+ newflyer(){Ed.init(Ed.blank(),true);S.tab='flyer-edit';Admin.go('flyer-edit')},
+ editflyer(el){const f=S.flyers.find(x=>x.id===el.dataset.id);Ed.init(JSON.parse(JSON.stringify(f)),false);Admin.go('flyer-edit')},
+ dupflyer(el){const f=JSON.parse(JSON.stringify(S.flyers.find(x=>x.id===el.dataset.id)));Object.assign(f,{id:uid(),title:f.title+' (cópia)',slug:'',published:false,archived:false,deleted_at:null,published_at:null,created_at:null});Ed.init(f,true);Admin.go('flyer-edit')},
+ dupweek(el){const f=JSON.parse(JSON.stringify(S.flyers.find(x=>x.id===el.dataset.id)));const len=dayNum(f.end_date)-dayNum(f.start_date);const ns=addDays(f.end_date,1);Object.assign(f,{id:uid(),slug:'',start_date:ns,end_date:addDays(ns,len),pages:[],cover_url:'',pdf_url:'',published:false,archived:false,deleted_at:null,published_at:null,created_at:null,demo:false});Ed.init(f,true);Admin.go('flyer-edit');toast('Datas ajustadas para a próxima semana. Envie as novas artes.','ok')},
+ viewflyer(el){const f=S.flyers.find(x=>x.id===el.dataset.id);Pub.view='vertical';Modal.open(`<div class="phone">${Pub.flyerHTML({...f,published:true}).replace(/data-act="(share|view|lb|pdfdl|carprev|carnext)"/g,'data-x="$1"')}</div>`,{title:'Visualizar como cliente',wide:true})},
+ async togpub(el){const f={...S.flyers.find(x=>x.id===el.dataset.id)};f.published=!f.published;if(f.published&&!f.published_at)f.published_at=new Date().toISOString();try{await Data.save('flyers',f);toast(f.published?'Publicado.':'Despublicado.','ok');Admin.render()}catch(e){Admin.err(e)}},
+ qrflyer(el){const f=S.flyers.find(x=>x.id===el.dataset.id);Admin.showQR(`${ShareManager.url(f)}&utm_source=offline&utm_medium=qrcode`,'qr-'+f.slug)},
+ qrstore(el){Admin.showQR(`${baseUrl()}?loja=${el.dataset.id}&utm_source=offline&utm_medium=qrcode`,'qr-loja')},
+ async archflyer(el){const f={...S.flyers.find(x=>x.id===el.dataset.id)};f.archived=!f.archived;try{await Data.save('flyers',f);toast(f.archived?'Encarte arquivado.':'Encarte restaurado.','ok');Admin.render()}catch(e){Admin.err(e)}},
+ async delflyer(el){const f=S.flyers.find(x=>x.id===el.dataset.id);if(!confirm(`Excluir DEFINITIVAMENTE "${f.title}"? Esta ação não pode ser desfeita. (Prefira Arquivar para manter o histórico.)`))return;try{await Data.remove('flyers',f.id);toast('Encarte excluído.','ok');Admin.render()}catch(e){Admin.err(e)}},
+ edmv(el){Ed.move(+el.dataset.i,+el.dataset.d)},edcv(el){Ed.cover=Ed.pages[+el.dataset.i].id;Ed.drawPages()},eddel(el){const[p]=Ed.pages.splice(+el.dataset.i,1);if(p.id===Ed.cover)Ed.cover=Ed.pages[0]?.id||null;Ed.drawPages()},
+ pdfrm(){Ed.pdf=null;Admin.render()},
+ edpreview(){Ed.preview()},edsave(el){Ed.save(el.dataset.p==='1')},
+ editpromo(el){const p=S.promos.find(x=>x.id===el.dataset.id)||{id:uid(),title:'',description:'',image_url:'',start_date:todayStr(),end_date:addDays(todayStr(),6),all_stores:true,store_ids:[],cta_label:'',link_url:'',featured:false,position:0,published:true,archived:false};Modal.open(Admin.promoForm(p),{title:'Promoção',wide:true})},
+ async duppromo(el){const p={...S.promos.find(x=>x.id===el.dataset.id),id:uid(),title:S.promos.find(x=>x.id===el.dataset.id).title+' (cópia)',published:false,created_at:new Date().toISOString()};try{await Data.save('promotions',p);toast('Promoção duplicada.','ok');Admin.render()}catch(e){Admin.err(e)}},
+ async featpromo(el){const p={...S.promos.find(x=>x.id===el.dataset.id)};p.featured=!p.featured;try{await Data.save('promotions',p);Admin.render()}catch(e){Admin.err(e)}},
+ async endpromo(el){const p={...S.promos.find(x=>x.id===el.dataset.id)};p.end_date=addDays(todayStr(),-1);if(p.start_date&&p.start_date>p.end_date)p.start_date=p.end_date;try{await Data.save('promotions',p);toast('Promoção encerrada.','ok');Admin.render()}catch(e){Admin.err(e)}},
+ async delpromo(el){if(!confirm('Excluir esta promoção definitivamente?'))return;try{await Data.remove('promotions',el.dataset.id);Admin.render()}catch(e){Admin.err(e)}},
+ editstore(el){const s=S.stores.find(x=>x.id===el.dataset.id)||{id:uid(),name:'',address:'',neighborhood:'',city:'',phone:'',whatsapp:'',maps_url:'',hours:'',image_url:'',active:true};Modal.open(Admin.storeForm(s),{title:'Loja',wide:true})},
+ async delstore(el){if(!confirm('Excluir esta loja?'))return;try{await Data.remove('stores',el.dataset.id);Admin.render()}catch(e){Admin.err(e)}},
+ async cloudtest(){const f=$('[data-form=cloud]'),u=f.url.value.trim(),k=f.key.value.trim();if(!u||!k)return toast('Preencha URL e Anon Key.','err');try{await SB.test(u,k);toast('Conexão OK! Tabelas encontradas.','ok')}catch(e){toast('Falha: '+(e.message||e)+(/relation|does not exist|schema cache/i.test(e.message||'')?' — execute o SQL de configuração.':''),'err')}},
+ cloudrm(){if(!confirm('Remover configuração da nuvem? O sistema voltará ao Modo Local.'))return;localStorage.removeItem('sb_cfg');location.reload()},
+ bkexp(){BackupManager.export()},
+ async rmdemo(){if(!confirm('Remover todos os dados de demonstração?'))return;try{for(const k of['flyers','stores','promotions'])for(const x of[...Data.arr(k)].filter(x=>x.demo))await Data.remove(k,x.id);toast('Dados de demonstração removidos.','ok');Admin.render()}catch(e){Admin.err(e)}},
+ async qrdl(){const cv=$('#qrcv');cv.toBlob(b=>download('qrcode-ofertas.png',b))},
+ qrmdl(){$('#qrm').toBlob(b=>download((window._qr.name||'qrcode')+'.png',b))}
+};
+document.addEventListener('click',e=>{const el=e.target.closest('[data-act]');if(!el)return;const f=A[el.dataset.act];if(!f)return;if(el.tagName==='A'&&el.dataset.act!=='nav'&&el.dataset.act!=='reset'){f(el,e);return}f(el,e)});
+
+/* ===== FORMS ===== */
+const Forms={
+ noop(){},
+ async login(f){try{await AuthManager.login(f.email.value.trim(),f.pw.value);Admin.render()}catch(e){toast(/Invalid login/i.test(e.message)?'E-mail ou senha incorretos.':(e.message||'Falha no login'),'err')}},
+ async promo(f){const fd=new FormData(f),g=k=>(fd.get(k)||'').toString().trim();const old=S.promos.find(x=>x.id===g('id'))||{};const p={...old,id:g('id'),title:g('title'),description:g('description'),image_url:g('image_url'),start_date:g('start_date')||null,end_date:g('end_date')||null,cta_label:g('cta_label'),link_url:g('link_url'),position:+g('position')||0,featured:fd.get('featured')==='on',published:fd.get('published')==='on',all_stores:fd.get('all_stores')==='on',store_ids:fd.getAll('store_ids'),archived:false,created_at:old.created_at||new Date().toISOString()};
+  if(!p.title)return toast('Informe o título.','err');if(p.start_date&&p.end_date&&p.end_date<p.start_date)return toast('A data final não pode ser anterior à inicial.','err');
+  try{await Data.save('promotions',p);Modal.close();toast('Promoção salva.','ok');Admin.render()}catch(e){Admin.err(e,'Falha ao salvar')}},
+ async store(f){const fd=new FormData(f),g=k=>(fd.get(k)||'').toString().trim();const old=S.stores.find(x=>x.id===g('id'))||{};const s={...old,id:g('id'),name:g('name'),address:g('address'),neighborhood:g('neighborhood'),city:g('city'),phone:g('phone'),whatsapp:g('whatsapp'),maps_url:g('maps_url'),hours:g('hours'),image_url:g('image_url'),active:fd.get('active')==='on',created_at:old.created_at||new Date().toISOString()};if(!s.name)return toast('Informe o nome da loja.','err');
+  try{await Data.save('stores',s);Modal.close();toast('Loja salva.','ok');Admin.render()}catch(e){Admin.err(e,'Falha ao salvar')}},
+ async settings(f){const fd=new FormData(f),n={...S.settings};for(const[k,v]of fd.entries())n[k]=v.toString().trim();if($('[name=historyPublic]',f))n.historyPublic=fd.get('historyPublic')==='on';if($('[name=name]',f)&&!n.name)return toast('Informe o nome.','err');
+  try{await Data.saveSettings(n);applyBrand();toast('Configurações salvas.','ok');Admin.render()}catch(e){Admin.err(e,'Falha ao salvar')}},
+ async cloud(f){const u=f.url.value.trim().replace(/\/+$/,''),k=f.key.value.trim();if(!/^https:\/\/.+/.test(u)||k.length<20)return toast('URL ou chave inválida.','err');localStorage.setItem('sb_cfg',JSON.stringify({url:u,key:k}));toast('Configuração salva. Recarregando…','ok');setTimeout(()=>location.reload(),700)}
+};
+document.addEventListener('submit',e=>{const f=e.target.closest('[data-form]');if(!f)return;e.preventDefault();Forms[f.dataset.form]?.(f)});
+
+/* ===== CHANGE / INPUT / DRAG ===== */
+const refreshList=debounce(()=>{const l=$('#flyerList');if(l)l.innerHTML=Admin.flyerRows(Admin.filtered())||'<p style="color:#777;padding:10px">Nenhum encarte encontrado.</p>'},200);
+document.addEventListener('input',e=>{const k=e.target.dataset?.flt;if(k){Admin.flt[k]=e.target.value;refreshList()}});
+document.addEventListener('change',async e=>{const t=e.target,d=t.dataset||{};
+ if(d.flt){Admin.flt[d.flt]=t.value;refreshList()}
+ if(d.link){Admin.linkSel[d.link]=t.value;if(d.link==='t')Admin.linkSel.id='';Admin.render()}
+ if(d.change==='allst'){$('#stBox').style.display=t.checked?'none':'flex'}
+ if(d.change==='upimg'&&t.files[0]){try{const blob=await UploadManager.optimize(t.files[0],+d.max||1000,.9);const ext=blob.type==='image/webp'?'webp':blob.type==='image/png'?'png':'jpg';const url=await Data.upload(d.bucket,blob,`${d.field}-${uid().slice(0,8)}.${ext}`);const h=$(`[name=${d.field}]`);h.value=url;const pv=$('#pv_'+d.field);pv.src=url;pv.style.display='block';toast('Imagem pronta.','ok')}catch(x){Admin.err(x,'Falha no upload')}}
+ if(t.id==='pgInput'){await Ed.addFiles(t.files);t.value=''}
+ if(t.id==='pdfInput'&&t.files[0]){try{const f=UploadManager.pdf(t.files[0]);Ed.pdf={url:URL.createObjectURL(f),blob:f};$('#pdfName').textContent=`${f.name} (${fmtB(f.size)})`}catch(x){toast(x.message,'err');t.value=''}}
+ if(t.id==='bkimp'&&t.files[0]){await BackupManager.import(t.files[0]);t.value=''}
+});
+document.addEventListener('dragstart',e=>{const p=e.target.closest?.('.pgi');if(p){Ed.drag=+p.dataset.i;e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain','p')}});
+document.addEventListener('dragover',e=>{if(e.target.closest?.('.pgi')||e.target.closest?.('#drop'))e.preventDefault();const d=e.target.closest?.('#drop');if(d)d.classList.add('over')});
+document.addEventListener('dragleave',e=>{const d=e.target.closest?.('#drop');if(d)d.classList.remove('over')});
+document.addEventListener('drop',e=>{const d=e.target.closest?.('#drop');if(d){e.preventDefault();d.classList.remove('over');if(e.dataTransfer.files.length)Ed.addFiles(e.dataTransfer.files);return}
+ const p=e.target.closest?.('.pgi');if(p&&Ed.drag!==null){e.preventDefault();const to=+p.dataset.i,[x]=Ed.pages.splice(Ed.drag,1);Ed.pages.splice(to,0,x);Ed.drag=null;Ed.drawPages()}});
+document.addEventListener('scroll',e=>{if(e.target.id==='car'){const c=e.target,i=Math.round(c.scrollLeft/(c.clientWidth+10));$$('#dots i').forEach((d,k)=>d.classList.toggle('on',k===i))}},true);
+
+App.boot();
+</script>
+</body>
+</html>
